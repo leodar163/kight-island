@@ -57,12 +57,30 @@ namespace Characters
             
             if (velocityDirection.x != 0 && inputDeltaX <= Mathf.Abs(rb.linearVelocityX))
             {
-                rb.linearVelocityX -= velocityDirection.x * deceleration * Time.fixedDeltaTime;
-            }
+                float decelerationX = velocityDirection.x * deceleration * Time.fixedDeltaTime;
+                
+                decelerationX = velocityDirection.x switch
+                {
+                    > 0 => decelerationX > rb.linearVelocityX ? rb.linearVelocityX : decelerationX,
+                    < 0 => decelerationX < rb.linearVelocityX ? rb.linearVelocityX : decelerationX,
+                    _ => decelerationX
+                };
 
+                rb.linearVelocityX -= decelerationX;
+            }
+    
             if (velocityDirection.y != 0 && inputDeltaY <= Mathf.Abs(rb.linearVelocityY))
             {
-                rb.linearVelocityY -= velocityDirection.y * deceleration * Time.fixedDeltaTime;
+                float decelerationY = velocityDirection.y * deceleration * Time.fixedDeltaTime;
+                
+                decelerationY = velocityDirection.y switch
+                {
+                    > 0 => decelerationY > rb.linearVelocityY ? rb.linearVelocityY : decelerationY,
+                    < 0 => decelerationY < rb.linearVelocityY ? rb.linearVelocityY : decelerationY,
+                    _ => decelerationY
+                };
+                
+                rb.linearVelocityY -= decelerationY;
             }
         }
     }
