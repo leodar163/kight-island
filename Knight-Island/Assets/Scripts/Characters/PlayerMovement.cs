@@ -12,6 +12,8 @@ namespace Characters
         [SerializeField] private float deceleration;
         private PlayerInputs _playerInputs;
         
+        public Vector2 CurrentDirection => _playerInputs.Movements.Direction.ReadValue<Vector2>();
+
         private void OnValidate()
         {
             if(rb == null) TryGetComponent(out rb);
