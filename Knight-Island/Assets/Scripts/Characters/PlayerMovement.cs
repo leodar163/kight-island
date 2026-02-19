@@ -1,4 +1,5 @@
 using System;
+using CameraSystem;
 using UnityEngine;
 
 namespace Characters
@@ -10,6 +11,13 @@ namespace Characters
         [SerializeField] private float maxSpeed;
         [SerializeField] private float acceleration;
         [SerializeField] private float deceleration;
+        [SerializeField] private CameraController cameraController;
+        
+        void Move()
+        {
+            cameraController.StartShake(0.5f, 0.2f);
+        }
+
         private PlayerInputs _playerInputs;
         
         public Vector2 CurrentDirection => _playerInputs.Movements.Direction.ReadValue<Vector2>();
