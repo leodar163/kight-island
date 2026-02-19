@@ -13,7 +13,7 @@ namespace CameraSystem
             
             Vector3 position = target.position;
             position.z = transform.position.z;
-            
+
             transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
         }
         
