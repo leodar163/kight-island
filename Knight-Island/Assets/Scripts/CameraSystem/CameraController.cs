@@ -21,23 +21,7 @@ namespace CameraSystem
         {
             shake.ShakeCamera(intensity, duration);
         }
-        
-        private void Start()
-        {
-            StartCoroutine(TestShake());
-        }
-        
-        private IEnumerator TestShake()
-        {
-            SetNoise(5f, 1f); // gros shake lent
-            yield return new WaitForSeconds(10f);
-            
-            SetNoise(1f, 10f); // shake rapide
-            yield return new WaitForSeconds(1f);
 
-            SetNoise(0f, 0f); // stop
-        }
-        
         public void SetNoise(float amplitude, float frequency)
         {
             _noise.AmplitudeGain = amplitude;
