@@ -14,13 +14,14 @@ namespace Characters.Test
             if (Keyboard.current.fKey.wasPressedThisFrame)
             {
                 playerHealth.TakeDamage(10f);
-                Debug.Log($"Dégâts ! Vie restante : {playerHealth.CurrentHealth}");
+                print($"[TEST] Dégâts infligés. Vie actuelle : {playerHealth.CurrentHealth}");
             }
 
             if (Keyboard.current.hKey.wasPressedThisFrame)
             {
                 playerHealth.Heal(10f);
-                Debug.Log($"Soin ! Vie actuelle : {playerHealth.CurrentHealth}");            }
+                print($"[TEST] Soin appliqué. Vie actuelle : {playerHealth.CurrentHealth}");
+            }
         }
     }
 }
