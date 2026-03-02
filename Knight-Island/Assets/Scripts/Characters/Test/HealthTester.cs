@@ -11,7 +11,7 @@ namespace Characters.Test
 
         void Update()
         {
-            if (Keyboard.current.fKey.wasPressedThisFrame)
+            if (Keyboard.current.gKey.wasPressedThisFrame)
             {
                 playerHealth.TakeDamage(10f);
                 print($"[TEST] Dégâts infligés. Vie actuelle : {playerHealth.CurrentHealth}");
