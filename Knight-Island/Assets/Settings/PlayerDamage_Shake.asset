@@ -13,4 +13,16 @@ MonoBehaviour:
   m_Name: PlayerDamage_Shake
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.NoiseSettings
   PositionNoise: []
-  OrientationNoise: []
+  OrientationNoise:
+  - X:
+      Frequency: 10
+      Amplitude: 1
+      Constant: 0
+    Y:
+      Frequency: 10
+      Amplitude: 1
+      Constant: 0
+    Z:
+      Frequency: 10
+      Amplitude: 1
+      Constant: 0

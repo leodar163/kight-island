@@ -7,19 +7,19 @@ namespace UI
     public class HealthBar : MonoBehaviour
     {
         [SerializeField] private PlayerHealth playerHealth;
-        [SerializeField] private Slider healthSlider; 
+        [SerializeField] private Image healthSlider; 
 
         private void Start()
         {
             playerHealth.OnHealthChanged += UpdateHealthBar;
             
-            UpdateHealthBar(playerHealth.CurrentHealth, 100f); // On peut ajuster le 100f plus tard
+            UpdateHealthBar(playerHealth.CurrentHealth, 100f); 
         }
 
         private void UpdateHealthBar(float currentHealth, float maxHealth)
         {
             float fillAmount = currentHealth / maxHealth;
-            healthSlider.value = fillAmount;
+            healthSlider.fillAmount = fillAmount;
             
             print($"[HUD] Mise à jour de la barre : {fillAmount * 100}%");
         }

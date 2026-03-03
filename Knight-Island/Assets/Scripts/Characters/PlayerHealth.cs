@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Characters
 {
@@ -8,6 +9,7 @@ namespace Characters
     {
         [SerializeField] private float invincibilityDuration = 1.0f;
         [SerializeField] private float maxHealth = 100f;
+        [SerializeField] private Image healthBarFill;
         
         public float CurrentHealth => _currentHealth;
         private float _currentHealth;
@@ -26,6 +28,16 @@ namespace Characters
         private void Awake()
         {
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            OnHealthChanged += UpdateUI;
+        }
+        
+        private void UpdateUI(float current, float max)
+        {
+            if (healthBarFill)
+            {
+                healthBarFill.fillAmount = current / max;
+                print($"[HUD] Mise à jour visuelle : {healthBarFill.fillAmount * 100}%");
+            }
         }
 
         public void TakeDamage(float damage)
@@ -67,6 +79,11 @@ namespace Characters
             _spriteRenderer.enabled = true;
             _isInvincible = false;
             print("[HEALTH] Invincibilité terminée.");
+        }
+        
+        private void OnDestroy()
+        {
+            OnHealthChanged -= UpdateUI;
         }
     }
 }
