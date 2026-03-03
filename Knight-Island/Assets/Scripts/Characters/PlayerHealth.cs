@@ -10,6 +10,7 @@ namespace Characters
         private float _currentHealth;
         
         public event Action<float, float>  OnHealthChanged;
+        public event Action OnDamageTaken;
         
         private void Start()
         {
@@ -23,6 +24,8 @@ namespace Characters
             
             _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
             OnHealthChanged?.Invoke(_currentHealth, maxHealth);
+            
+            OnDamageTaken?.Invoke();
         }
 
         public void Heal(float amount)
