@@ -15,6 +15,7 @@ namespace Characters
         private float _currentHealth;
         private bool _isInvincible = false;
         private SpriteRenderer _spriteRenderer;
+        private PlayerMovement _playerMovement;
         
         public event Action<float, float>  OnHealthChanged;
         public event Action OnDamageTaken;
@@ -28,6 +29,7 @@ namespace Characters
         private void Awake()
         {
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _playerMovement = GetComponent<PlayerMovement>();
             OnHealthChanged += UpdateUI;
         }
         
@@ -45,13 +47,28 @@ namespace Characters
             if (_isInvincible) return;
             
             _currentHealth -= damage;
-            
             _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
-            OnHealthChanged?.Invoke(_currentHealth, maxHealth);
             
+            OnHealthChanged?.Invoke(_currentHealth, maxHealth);
             OnDamageTaken?.Invoke();
 
-            StartCoroutine(InvincibilityRoutine());
+            if (_currentHealth <= 0)
+            {
+                Die();
+            }
+            else 
+            {
+                StartCoroutine(InvincibilityRoutine());
+            }
+        }
+        
+        private void Die()
+        {
+            if (_playerMovement)
+            {
+                _playerMovement.isDead = true;
+                print("[HEALTH] Le joueur est mort, mouvements bloqués.");
+            }
         }
 
         public void Heal(float amount)
