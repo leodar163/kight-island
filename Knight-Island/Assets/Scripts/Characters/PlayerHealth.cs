@@ -44,7 +44,7 @@ namespace Characters
 
         public void TakeDamage(float damage)
         {
-            if (_isInvincible) return;
+            if (_isInvincible || (_playerMovement && _playerMovement.isDead)) return;
             
             _currentHealth -= damage;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
@@ -56,10 +56,8 @@ namespace Characters
             {
                 Die();
             }
-            else 
-            {
-                StartCoroutine(InvincibilityRoutine());
-            }
+            
+            StartCoroutine(InvincibilityRoutine());
         }
         
         private void Die()
@@ -73,8 +71,9 @@ namespace Characters
 
         public void Heal(float amount)
         {
-            _currentHealth += amount;
+            if (_playerMovement && _playerMovement.isDead) return;
             
+            _currentHealth += amount;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
             OnHealthChanged?.Invoke(_currentHealth, maxHealth);
         }
