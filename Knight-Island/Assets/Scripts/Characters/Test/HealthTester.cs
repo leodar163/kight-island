@@ -13,7 +13,7 @@ namespace Characters.Test
         {
             if (Keyboard.current.gKey.wasPressedThisFrame)
             {
-                playerHealth.TakeDamage(10f);
+                playerHealth.TakeDamage(50f);
                 print($"[TEST] Dégâts infligés. Vie actuelle : {playerHealth.CurrentHealth}");
             }
 
