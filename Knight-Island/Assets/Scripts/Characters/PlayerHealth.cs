@@ -19,6 +19,7 @@ namespace Characters
         
         public event Action<float, float>  OnHealthChanged;
         public event Action OnDamageTaken;
+        public event Action OnDeath;
         
         private void Start()
         {
@@ -67,6 +68,9 @@ namespace Characters
                 _playerMovement.isDead = true;
                 print("[HEALTH] Le joueur est mort, mouvements bloqués.");
             }
+            
+            OnDeath?.Invoke();
+            print("[EVENT] Le signal OnDeath a été envoyé au reste du jeu.");
         }
 
         public void Heal(float amount)
