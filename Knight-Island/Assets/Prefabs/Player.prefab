@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 1549188472770221899}
   - component: {fileID: 1375692921150391052}
   - component: {fileID: 2788249774549758711}
+  - component: {fileID: 5370436195252609508}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -276,3 +277,19 @@ MonoBehaviour:
   maxSpeed: 4
   acceleration: 16
   deceleration: 16
+  isDead: 0
+--- !u!114 &5370436195252609508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904613292258820571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209d54353d6876446b7dd3843bc4d1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerHealth
+  invincibilityDuration: 1
+  maxHealth: 100
+  healthBarFill: {fileID: 0}

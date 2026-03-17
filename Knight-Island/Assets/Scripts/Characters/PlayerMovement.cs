@@ -12,10 +12,10 @@ namespace Characters
         [SerializeField] private float acceleration;
         [SerializeField] private float deceleration;
 
+        public bool isDead = false;
         private PlayerInputs _playerInputs;
         
-        public Vector2 CurrentDirection => _playerInputs.Movements.Direction.ReadValue<Vector2>();
-
+        public Vector2 CurrentDirection => isDead ? Vector2.zero : _playerInputs.Movements.Direction.ReadValue<Vector2>();
         private void OnValidate()
         {
             if(rb == null) TryGetComponent(out rb);
@@ -29,6 +29,12 @@ namespace Characters
 
         private void FixedUpdate()
         {
+            if (isDead)
+            {
+                rb.linearVelocity = Vector2.zero;
+                return;
+            }
+            
             Vector2 direction = _playerInputs.Movements.Direction.ReadValue<Vector2>();
             
             Accelerate(direction);
