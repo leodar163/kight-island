@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerMovementAnimation
   _animator: {fileID: 5390038924550402352}
-  playerMovement: {fileID: 2788249774549758711}
+  playerMovementController: {fileID: 2788249774549758711}
 --- !u!1 &1334912714124778218
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 1549188472770221899}
   - component: {fileID: 1375692921150391052}
   - component: {fileID: 2788249774549758711}
+  - component: {fileID: 1188868957415637171}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -272,6 +273,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c845337f6d2fb7f47992fca155190dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerMovement
+--- !u!114 &1188868957415637171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904613292258820571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2cb030640df39489d488c7488a6237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Characters.CharacterMovement
   rb: {fileID: 1375692921150391052}
   maxSpeed: 4
   acceleration: 16
