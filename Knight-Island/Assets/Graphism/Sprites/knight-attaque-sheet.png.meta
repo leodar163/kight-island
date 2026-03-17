@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 1e7f33a3226a55e4cb238b377504b0ef
+guid: b1335291a7b5a2740ae18f23c5237f4d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7975200049519438364
-    second: barre-vie_0
+      213: -4562857918422641290
+    second: knight-attaque-sheet_0
+  - first:
+      213: 4749705327538671888
+    second: knight-attaque-sheet_1
+  - first:
+      213: 6967085260789904782
+    second: knight-attaque-sheet_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,12 +54,12 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -96,40 +102,71 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barre-vie_0
+      name: knight-attaque-sheet_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 2
-        width: 33
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 3, z: 3, w: 3}
+        x: 0
+        y: 0
+        width: 19
+        height: 21
+      alignment: 9
+      pivot: {x: 0.47368422, y: 0.2857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4e557b33fc5625190800000000000000
-      internalID: -7975200049519438364
+      spriteID: 67517d3f5e87da0c0800000000000000
+      internalID: -4562857918422641290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-attaque-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.59999996, y: 0.16}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01119b394d75ae140800000000000000
+      internalID: 4749705327538671888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-attaque-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 2
+        width: 29
+        height: 19
+      alignment: 9
+      pivot: {x: 0.44827586, y: 0.21052632}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e85fd39a12f00b060800000000000000
+      internalID: 6967085260789904782
       vertices: []
       indices: 
       edges: []
@@ -138,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3b933ed7fe49c174e9d85d696c9acfda
+    spriteID: 27d5be713bbcfb447933208188edd3f7
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      barre-vie_0: -7975200049519438364
+      knight-attaque-sheet_0: -4562857918422641290
+      knight-attaque-sheet_1: 4749705327538671888
+      knight-attaque-sheet_2: 6967085260789904782
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
