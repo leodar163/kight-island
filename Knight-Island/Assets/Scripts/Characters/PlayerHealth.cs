@@ -26,6 +26,7 @@ namespace Characters
         {
             _currentHealth = maxHealth;
             OnHealthChanged?.Invoke(_currentHealth, maxHealth);
+            UpdateUI(_currentHealth, maxHealth);
         }
 
         private void Awake()
