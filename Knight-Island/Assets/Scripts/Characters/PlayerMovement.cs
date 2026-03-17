@@ -13,6 +13,7 @@ namespace Characters
         [SerializeField] private float deceleration;
 
         public bool isDead = false;
+        public bool isAttacking = false;
         private PlayerInputs _playerInputs;
         
         public Vector2 CurrentDirection => isDead ? Vector2.zero : _playerInputs.Movements.Direction.ReadValue<Vector2>();
@@ -29,7 +30,7 @@ namespace Characters
 
         private void FixedUpdate()
         {
-            if (isDead)
+            if (isDead || isAttacking )
             {
                 rb.linearVelocity = Vector2.zero;
                 return;

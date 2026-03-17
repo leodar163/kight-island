@@ -9,7 +9,8 @@ namespace Characters
         private static readonly int Horizontal = Animator.StringToHash("Horizontal");
         private static readonly int Vertical = Animator.StringToHash("Vertical");
         private static readonly int Moving = Animator.StringToHash("Moving");
-
+        private static readonly int AttackTrigger = Animator.StringToHash("Attack");
+        
         [HideInInspector] [SerializeField] private Animator _animator;
         [SerializeField] private PlayerMovement playerMovement;
         private void OnValidate()
@@ -29,6 +30,11 @@ namespace Characters
             _animator.SetInteger(Horizontal, direction.x != 0 ? direction.x > 0 ? 1 : -1 : 0);
             _animator.SetInteger(Vertical, direction.y != 0 ? direction.y > 0 ? 1 : -1 : 0);
             _animator.SetBool(Moving, direction.magnitude > 0);
+        }
+
+        public void PlayAttackAnimation()
+        {
+            _animator.SetTrigger(AttackTrigger);
         }
     }
 }
