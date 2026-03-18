@@ -35,6 +35,25 @@ namespace Characters
         public void PlayAttackAnimation()
         {
             _animator.SetTrigger(AttackTrigger);
+            
+            float lastX = _animator.GetFloat("InputX");
+            float lastY = _animator.GetFloat("InputY");
+
+            if (lastY > 0.1f) 
+                _animator.Play("Knight_Attack_Back", 0, 0f);
+            else if (lastY < -0.1f) 
+                _animator.Play("Knight_Attack_Front", 0, 0f);
+            else if (lastX > 0.1f) 
+                _animator.Play("Knight_Attack_Right", 0, 0f);
+            else if (lastX < -0.1f) 
+                _animator.Play("Knight_Attack_Left", 0, 0f);
+            else
+                _animator.Play("Knight_Attack_Front", 0, 0f);
+        }
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
         }
     }
 }

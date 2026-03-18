@@ -15,6 +15,7 @@ namespace Characters
         public bool isDead = false;
         public bool isAttacking = false;
         private PlayerInputs _playerInputs;
+        private Animator _animator;
         
         public Vector2 CurrentDirection => isDead ? Vector2.zero : _playerInputs.Movements.Direction.ReadValue<Vector2>();
         private void OnValidate()
@@ -27,6 +28,13 @@ namespace Characters
             _playerInputs = new PlayerInputs();
             _playerInputs.Enable();
         }
+        
+        private void Awake()
+        {
+            _animator = GetComponentInChildren<Animator>();
+    
+            rb = GetComponent<Rigidbody2D>();
+        }
 
         private void FixedUpdate()
         {
@@ -38,10 +46,14 @@ namespace Characters
             
             Vector2 direction = _playerInputs.Movements.Direction.ReadValue<Vector2>();
             
-            Accelerate(direction);
-
-            ClampSpeed();
+            if (direction.sqrMagnitude > 0.01f) 
+            {
+                _animator.SetFloat("InputX", direction.x);
+                _animator.SetFloat("InputY", direction.y);
+            }
             
+            Accelerate(direction);
+            ClampSpeed();
             Decelerate(direction);
         }
 
