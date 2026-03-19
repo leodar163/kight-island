@@ -15,6 +15,10 @@ namespace Characters
         [Header("Réglages")]
         [SerializeField] private float attackDuration = 0.3f;
         
+        [Header("Système de Hitbox")]
+        [SerializeField] private GameObject attackHitbox;
+        [SerializeField] private float hitboxDistance = 0.5f;
+        
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
         private PlayerMovement _playerMovement;
@@ -48,31 +52,30 @@ namespace Characters
             float lastY = _animator.GetFloat("InputY");
 
             _animator.enabled = false;
-            
             _spriteRenderer.flipX = false;
+            
+            attackHitbox.SetActive(true);
+            Vector2 hitboxPos = Vector2.zero;
 
-            if (lastY > 0.1f)
-            {
+            if (lastY > 0.1f) {
                 _spriteRenderer.sprite = attackBackSprite;
+                hitboxPos = Vector2.up;
             }
-            else if (lastY < -0.1f)
-            {
+            else if (lastY < -0.1f) {
                 _spriteRenderer.sprite = attackFrontSprite;
+                hitboxPos = Vector2.down;
             }
-            else if (lastX > 0.1f)
-            {
+            else if (lastX > 0.1f) {
                 _spriteRenderer.sprite = attackRightSprite;
+                hitboxPos = Vector2.right;
             }
-            else if (lastX < -0.1f)
-            {
-                _spriteRenderer.sprite = attackRightSprite; 
-        
+            else if (lastX < -0.1f) {
+                _spriteRenderer.sprite = attackRightSprite;
                 _spriteRenderer.flipX = true;
+                hitboxPos = Vector2.left;
             }
-            else
-            {
-                _spriteRenderer.sprite = attackFrontSprite;
-            }
+
+            attackHitbox.transform.localPosition = hitboxPos * hitboxDistance;
 
             StartCoroutine(AttackCooldownRoutine());
         }
@@ -80,6 +83,8 @@ namespace Characters
         private IEnumerator AttackCooldownRoutine()
         {
             yield return new WaitForSeconds(attackDuration);
+            
+            attackHitbox.SetActive(false);
             
             _animator.enabled = true;
             _isAttacking = false;
