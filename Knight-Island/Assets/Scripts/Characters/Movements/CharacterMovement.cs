@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Characters
+namespace Characters.Movements
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class CharacterMovement : MonoBehaviour

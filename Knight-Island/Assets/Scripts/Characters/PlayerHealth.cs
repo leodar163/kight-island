@@ -15,7 +15,7 @@ namespace Characters
         private float _currentHealth;
         private bool _isInvincible = false;
         private SpriteRenderer _spriteRenderer;
-        private PlayerMovement _playerMovement;
+        // private PlayerMovement _playerMovement;
         private Animator _animator;
         
         public event Action<float, float>  OnHealthChanged;
@@ -31,9 +31,9 @@ namespace Characters
 
         private void Awake()
         {
-            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();            _playerMovement = GetComponent<PlayerMovement>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();            
             _animator = GetComponentInChildren<Animator>(); 
-            _playerMovement = GetComponent<PlayerMovement>();
+            // _playerMovement = GetComponent<PlayerMovement>();
             OnHealthChanged += UpdateUI;
         }
         
@@ -48,7 +48,7 @@ namespace Characters
 
         public void TakeDamage(float damage)
         {
-            if (_isInvincible || (_playerMovement && _playerMovement.isDead)) return;
+            if (_isInvincible ) return;
             
             _currentHealth -= damage;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
@@ -67,11 +67,11 @@ namespace Characters
         
         private void Die()
         {
-            if (_playerMovement)
-            {
-                _playerMovement.isDead = true;
-                print("[HEALTH] Le joueur est mort, mouvements bloqués.");
-            }
+            // if (_playerMovement)
+            // {
+            //     _playerMovement.isDead = true;
+            //     print("[HEALTH] Le joueur est mort, mouvements bloqués.");
+            // }
             
             StopAllCoroutines();
 
@@ -91,7 +91,7 @@ namespace Characters
 
         public void Heal(float amount)
         {
-            if (_playerMovement && _playerMovement.isDead) return;
+            // if (_playerMovement && _playerMovement.isDead) return;
             
             _currentHealth += amount;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
