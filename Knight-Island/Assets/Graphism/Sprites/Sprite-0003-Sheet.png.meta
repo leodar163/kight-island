@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: c866ee7c5417b9a41a6ad105a9ee92f5
+guid: 6cb2b963bc52319419ecd576926b3708
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7054879257636116548
-    second: crate-slice-test-Sheet_0
+      213: 179173025687594190
+    second: Sprite-0003-Sheet_0
+  - first:
+      213: 249474559980975759
+    second: Sprite-0003-Sheet_1
+  - first:
+      213: 7999969274959407159
+    second: Sprite-0003-Sheet_2
+  - first:
+      213: -1467934737977065176
+    second: Sprite-0003-Sheet_3
+  - first:
+      213: 7896550137810336082
+    second: Sprite-0003-Sheet_4
+  - first:
+      213: -9134859777587732243
+    second: Sprite-0003-Sheet_5
+  - first:
+      213: 2715521710134023487
+    second: Sprite-0003-Sheet_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -53,7 +71,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -100,199 +118,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crate-slice-test-Sheet-Multiple_0
+      name: Sprite-0003-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 10
-        height: 10
+        x: 1
+        y: 1
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 264874c64f3214d4bbfebeca97904187
-      internalID: -1571219632
+      spriteID: ec4e075eaec8c7200800000000000000
+      internalID: 179173025687594190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crate-slice-test-Sheet-Multiple_1
+      name: Sprite-0003-Sheet_1
       rect:
         serializedVersion: 2
-        x: 10
-        y: 0
-        width: 10
-        height: 10
+        x: 17
+        y: 1
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c2a874b7004debf41baf4ab65a08ba10
-      internalID: -1341702468
+      spriteID: f86b9206acf467300800000000000000
+      internalID: 249474559980975759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crate-slice-test-Sheet-Multiple_2
+      name: Sprite-0003-Sheet_2
       rect:
         serializedVersion: 2
-        x: 20
-        y: 0
-        width: 10
-        height: 10
+        x: 33
+        y: 1
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b177fbcbb4502054a8a44918e65562f7
-      internalID: -1976809256
+      spriteID: 738aeff7ba9950f60800000000000000
+      internalID: 7999969274959407159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crate-slice-test-Sheet-Multiple_3
+      name: Sprite-0003-Sheet_3
       rect:
         serializedVersion: 2
-        x: 30
-        y: 0
-        width: 10
-        height: 10
+        x: 49
+        y: 1
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e4e1781f104b8dc4187c4a84bb1c8313
-      internalID: -658938439
+      spriteID: 821cb6d1229d0abe0800000000000000
+      internalID: -1467934737977065176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crate-slice-test-Sheet-Multiple_4
+      name: Sprite-0003-Sheet_4
       rect:
         serializedVersion: 2
-        x: 40
-        y: 0
-        width: 10
-        height: 10
+        x: 65
+        y: 1
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1ee033753d525244bba63aa53a760813
-      internalID: -817420326
+      spriteID: 2593f3b338e269d60800000000000000
+      internalID: 7896550137810336082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crate-slice-test-Sheet-Multiple_5
+      name: Sprite-0003-Sheet_5
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 10
-        height: 10
+        x: 81
+        y: 1
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 58209a8e0e7d2794dbfbea61adcf68ad
-      internalID: 603550474
+      spriteID: de021eb4e657a3180800000000000000
+      internalID: -9134859777587732243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crate-slice-test-Sheet-Multiple_6
+      name: Sprite-0003-Sheet_6
       rect:
         serializedVersion: 2
-        x: 60
-        y: 0
-        width: 10
-        height: 10
+        x: 97
+        y: 1
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9fc55b4dba343624aa930e2a7593bcfc
-      internalID: -508156741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crate-slice-test-Sheet-Multiple_7
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 0
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad57f6b1b32ec414ca82cef5d787c55f
-      internalID: -139611112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crate-slice-test-Sheet-Multiple_8
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc68c4b3aeb3153459132a0af4d06c99
-      internalID: 558449605
+      spriteID: f355660ab987fa520800000000000000
+      internalID: 2715521710134023487
       vertices: []
       indices: 
       edges: []
@@ -301,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3762fb52b3f9c7d4ebff07407e6ca493
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -309,19 +283,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":9.0,"y":1.0},"gridSpriteSize":{"x":10.0,"y":10.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      crate-slice-test-Sheet-Multiple_0: -1571219632
-      crate-slice-test-Sheet-Multiple_1: -1341702468
-      crate-slice-test-Sheet-Multiple_2: -1976809256
-      crate-slice-test-Sheet-Multiple_3: -658938439
-      crate-slice-test-Sheet-Multiple_4: -817420326
-      crate-slice-test-Sheet-Multiple_5: 603550474
-      crate-slice-test-Sheet-Multiple_6: -508156741
-      crate-slice-test-Sheet-Multiple_7: -139611112
-      crate-slice-test-Sheet-Multiple_8: 558449605
+      Sprite-0003-Sheet_0: 179173025687594190
+      Sprite-0003-Sheet_1: 249474559980975759
+      Sprite-0003-Sheet_2: 7999969274959407159
+      Sprite-0003-Sheet_3: -1467934737977065176
+      Sprite-0003-Sheet_4: 7896550137810336082
+      Sprite-0003-Sheet_5: -9134859777587732243
+      Sprite-0003-Sheet_6: 2715521710134023487
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

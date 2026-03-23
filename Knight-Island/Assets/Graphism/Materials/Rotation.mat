@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CrateStacked
-  m_Shader: {fileID: 4800000, guid: 7666933102927ce4892d50a0ef20e9b3, type: 3}
+  m_Name: Rotation
+  m_Shader: {fileID: 4800000, guid: 8e6a1de97c30497082726dd9d5ab5b49, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -27,12 +27,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Atlas:
-        m_Texture: {fileID: 2800000, guid: 73b2d6a171d0b26479ee5448e8d54d64, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: bb364092d52f030478b83185acd5d2d1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -45,20 +41,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Angle: 0
+    - _Angle: 4
     - _EnableExternalAlpha: 0
-    - _PaddingRatioX: 1
-    - _PaddingRatioY: 1
-    - _PaddingYUV: 0
-    - _SliceCount: 9
-    - _SliceHeightUV: 0.1
-    - _SliceSpread: 0.0625
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _PaddingPx: {r: 0, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SliceSizePx: {r: 0, g: 0, b: 0, a: 0}
+    - _SizePx: {r: 16, g: 16, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

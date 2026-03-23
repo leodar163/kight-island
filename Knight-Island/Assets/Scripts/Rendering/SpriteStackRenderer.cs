@@ -8,20 +8,17 @@ namespace Rendering
     {
         [SerializeField] private Sprite atlas;
         [SerializeField] [Min(1)] private int sliceCount = 8;
-        [SerializeField] private float angle;
+        [SerializeField] private int angle;
+        [SerializeField] private float rotationSpeed;
 
         [SerializeField] [HideInInspector] private MeshFilter meshFilter;
         [SerializeField] [HideInInspector] private MeshRenderer meshRenderer;
 
         private static readonly int Atlas = Shader.PropertyToID("_Atlas");
         private static readonly int SliceCount = Shader.PropertyToID("_SliceCount");
-        private static readonly int SliceSpread = Shader.PropertyToID("_SliceSpread");
-        private static readonly int SliceHeightUV = Shader.PropertyToID("_SliceHeightUV");
         private static readonly int Angle = Shader.PropertyToID("_Angle");
         private static readonly int SliceSizePx = Shader.PropertyToID("_SliceSizePx");
-        private static readonly int PaddingRatioX = Shader.PropertyToID("_PaddingRatioX");
-        private static readonly int PaddingRatioY = Shader.PropertyToID("_PaddingRatioY");
-        private static readonly int PaddingYuv = Shader.PropertyToID("_PaddingYUV");
+        private static readonly int PaddingPx = Shader.PropertyToID("_PaddingPx");
 
         private void OnValidate()
         {
@@ -33,6 +30,12 @@ namespace Rendering
                 UpdateMaterialProperties();
             }
         }
+
+        // private void Update()
+        // {
+        //     angle += Time.deltaTime * rotationSpeed;
+        //     UpdateMaterialProperties();
+        // }
 
         private void GenerateMesh()
         {
@@ -87,24 +90,16 @@ namespace Rendering
             float sliceHeightPx = atlas.texture.height;
 
             float diagonal = Mathf.Sqrt(sliceWidthPx * sliceWidthPx + sliceHeightPx * sliceHeightPx);
-            float paddingYPx = diagonal - sliceHeightPx;
             float paddingXPx = diagonal - sliceWidthPx;
-
-            // Hauteur totale du quad en pixels, padding inclus
-            float totalQuadHeightPx = sliceHeightPx + (sliceCount - 1) + paddingYPx;
-            float paddingYUV = (diagonal - sliceHeightPx) / 2f / totalQuadHeightPx;
+            float paddingYPx = diagonal - sliceHeightPx;
 
             MaterialPropertyBlock mpb = new();
             meshRenderer.GetPropertyBlock(mpb);
             mpb.SetTexture(Atlas, atlas.texture);
             mpb.SetInt(SliceCount, sliceCount);
-            mpb.SetFloat(SliceSpread, 1f / totalQuadHeightPx);
-            mpb.SetFloat(SliceHeightUV, sliceHeightPx / totalQuadHeightPx);
             mpb.SetFloat(Angle, angle * Mathf.Deg2Rad);
             mpb.SetVector(SliceSizePx, new Vector2(sliceWidthPx, sliceHeightPx));
-            mpb.SetFloat(PaddingRatioX, diagonal / sliceWidthPx);
-            mpb.SetFloat(PaddingRatioY, diagonal / sliceHeightPx);
-            mpb.SetFloat(PaddingYuv, paddingYUV);
+            mpb.SetVector(PaddingPx, new Vector2(paddingXPx, paddingYPx));
             meshRenderer.SetPropertyBlock(mpb);
         }
     }
