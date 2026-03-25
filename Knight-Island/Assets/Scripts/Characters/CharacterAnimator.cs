@@ -5,17 +5,17 @@ using UnityEngine;
 namespace Characters
 {
     [RequireComponent(typeof(Animator))]
-    public class PlayerAnimator : MonoBehaviour
+    public class CharacterAnimator : MonoBehaviour
     {
         private static readonly int Horizontal = Animator.StringToHash("Horizontal");
         private static readonly int Vertical = Animator.StringToHash("Vertical");
         private static readonly int Moving = Animator.StringToHash("Moving");
 
-        [HideInInspector] [SerializeField] private Animator _animator;
-        [SerializeField] private PlayerMovementController playerMovementController;
+        [HideInInspector] [SerializeField] private Animator animator;
+        [SerializeField] private CharacterMovement charaMovement;
         private void OnValidate()
         {
-            if (_animator == null) TryGetComponent(out _animator);
+            if (animator == null) TryGetComponent(out animator);
         }
 
         private void Update()
@@ -25,11 +25,11 @@ namespace Characters
 
         private void SetLastDirection()
         {
-            Vector2 direction = playerMovementController.CurrentDirection;
+            Vector2 direction = charaMovement.Direction;
             
-            _animator.SetInteger(Horizontal, direction.x != 0 ? direction.x > 0 ? 1 : -1 : 0);
-            _animator.SetInteger(Vertical, direction.y != 0 ? direction.y > 0 ? 1 : -1 : 0);
-            _animator.SetBool(Moving, direction.magnitude > 0);
+            animator.SetFloat(Horizontal, direction.x);
+            animator.SetFloat(Vertical, direction.y);
+            animator.SetBool(Moving, direction.magnitude > 0);
         }
     }
 }
