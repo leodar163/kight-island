@@ -12,7 +12,7 @@ namespace Characters
         private static readonly int AttackTrigger = Animator.StringToHash("Attack");
         
         [HideInInspector] [SerializeField] private Animator _animator;
-        [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private PlayerMovementController playerMovementController;
         private void OnValidate()
         {
             if (_animator == null) TryGetComponent(out _animator);
@@ -25,7 +25,7 @@ namespace Characters
 
         private void SetLastDirection()
         {
-            Vector2 direction = playerMovement.CurrentDirection;
+            Vector2 direction = playerMovementController.CurrentDirection;
             
             _animator.SetInteger(Horizontal, direction.x != 0 ? direction.x > 0 ? 1 : -1 : 0);
             _animator.SetInteger(Vertical, direction.y != 0 ? direction.y > 0 ? 1 : -1 : 0);
