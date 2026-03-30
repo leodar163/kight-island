@@ -10,7 +10,6 @@ namespace Characters
             {
                 Debug.Log("L'épée a touché : " + other.name);
                 
-                // other.GetComponent<EnemyHealth>().TakeDamage(10);
             }
         }
     }

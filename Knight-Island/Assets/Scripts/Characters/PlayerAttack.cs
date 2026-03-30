@@ -18,24 +18,26 @@ namespace Characters
         [Header("Système de Hitbox")]
         [SerializeField] private GameObject attackHitbox;
         [SerializeField] private float hitboxDistance = 0.5f;
-        
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
-        private PlayerMovement _playerMovement;
+        
+        private PlayerMovementController _movementController; 
         private bool _isAttacking = false;
 
         private void Awake()
         {
             _animator = GetComponentInChildren<Animator>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _playerMovement = GetComponent<PlayerMovement>();
             
-            if (_animator == null) Debug.LogError("Animator introuvable sur l'enfant !");
+            _movementController = GetComponent<PlayerMovementController>();
+            
+            if (_animator == null) Debug.LogError("Animator introuvable !");
+            if (_movementController == null) Debug.LogError("PlayerMovementController introuvable !");
         }
 
         private void Update()
         {
-            if (_playerMovement.isDead) return;
+            if (_movementController.IsDead) return;
 
             if (Mouse.current.leftButton.wasPressedThisFrame && !_isAttacking)
             {
@@ -46,14 +48,15 @@ namespace Characters
         private void PerformAttack()
         {
             _isAttacking = true;
-            _playerMovement.isAttacking = true;
+    
+            _movementController.SetDead(true); 
 
             float lastX = _animator.GetFloat("InputX");
             float lastY = _animator.GetFloat("InputY");
 
             _animator.enabled = false;
-            _spriteRenderer.flipX = false;
-            
+            _spriteRenderer.flipX = false; // Reset du flip au début
+    
             attackHitbox.SetActive(true);
             Vector2 hitboxPos = Vector2.zero;
 
@@ -76,19 +79,21 @@ namespace Characters
             }
 
             attackHitbox.transform.localPosition = hitboxPos * hitboxDistance;
-
             StartCoroutine(AttackCooldownRoutine());
         }
 
         private IEnumerator AttackCooldownRoutine()
         {
             yield return new WaitForSeconds(attackDuration);
-            
+    
             attackHitbox.SetActive(false);
-            
             _animator.enabled = true;
             _isAttacking = false;
-            _playerMovement.isAttacking = false;
+    
+            if (!_movementController.IsDead) 
+            {
+                _movementController.SetDead(false); 
+            }
         }
     }
 }

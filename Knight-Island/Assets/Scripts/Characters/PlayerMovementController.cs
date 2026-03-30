@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Characters
@@ -9,14 +10,15 @@ namespace Characters
         private PlayerInputs _playerInputs;
 
         private bool _isDead;
-        public bool IsDead => _isDead; 
+        public bool IsDead => _isDead;  
         
-        public void SetDeadTrue()
+        public void SetDead(bool state) 
         {
-            _isDead = true;
-            _charaMovement.Direction = Vector2.zero;
-            Debug.Log("Mort du joueur activée via SetDeadTrue");
+            _isDead = state;
+            if (_isDead) _charaMovement.Direction = Vector2.zero;
         }
+        
+        public void SetDeadTrue() => SetDead(true);
         
         public Vector2 CurrentDirection => _isDead ? Vector2.zero : _playerInputs.Movements.Direction.ReadValue<Vector2>();
 
