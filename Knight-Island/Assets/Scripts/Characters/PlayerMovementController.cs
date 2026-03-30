@@ -11,9 +11,11 @@ namespace Characters
         private bool _isDead;
         public bool IsDead => _isDead; 
         
-        public void SetDead(bool state) 
+        public void SetDeadTrue()
         {
-            _isDead = state;
+            _isDead = true;
+            _charaMovement.Direction = Vector2.zero;
+            Debug.Log("Mort du joueur activée via SetDeadTrue");
         }
         
         public Vector2 CurrentDirection => _isDead ? Vector2.zero : _playerInputs.Movements.Direction.ReadValue<Vector2>();
