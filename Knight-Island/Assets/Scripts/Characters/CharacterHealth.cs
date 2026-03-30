@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 namespace Characters
 {
-    public class PlayerHealth : MonoBehaviour
+    public class CharacterHealth : MonoBehaviour
     {
         [Header("Settings")]
         [SerializeField] private float invincibilityDuration = 1.0f;
         [SerializeField] private float maxHealth = 100f;
 
         [Header("Events (Découplage)")]
-        public UnityEvent onPlayerDied;
+        public UnityEvent onCharacterDied;
         public event Action<float, float> OnHealthChanged;
         public event Action OnDamageTaken;
         public float CurrentHealth => _currentHealth; 
@@ -65,7 +65,7 @@ namespace Characters
             if (_spriteRenderer) _spriteRenderer.enabled = true;
             if (_animator) _animator.SetTrigger("Die");
 
-            onPlayerDied?.Invoke();
+            onCharacterDied?.Invoke();
         }
 
         public void Heal(float amount)

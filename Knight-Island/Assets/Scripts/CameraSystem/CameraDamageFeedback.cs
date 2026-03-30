@@ -6,12 +6,12 @@ namespace CameraSystem
 {
     public class CameraDamageFeedback : MonoBehaviour 
     {
-        [SerializeField] private PlayerHealth playerHealth;
+        [SerializeField] private CharacterHealth characterHealth;
         [SerializeField] private CameraShake cameraShake; 
 
         private void Start() 
         {
-            playerHealth.OnDamageTaken += Shake;
+            characterHealth.OnDamageTaken += Shake;
         }
 
         private void Shake() 
@@ -23,8 +23,8 @@ namespace CameraSystem
 
         private void OnDestroy() 
         {
-            if (playerHealth != null) 
-                playerHealth.OnDamageTaken -= Shake;
+            if (characterHealth != null) 
+                characterHealth.OnDamageTaken -= Shake;
         }
     }
 }

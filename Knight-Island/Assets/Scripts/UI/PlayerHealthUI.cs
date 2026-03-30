@@ -7,11 +7,11 @@ namespace UI
     public class PlayerHealthUI : MonoBehaviour
     {
         [SerializeField] private Image healthBarFill;
-        [SerializeField] private PlayerHealth playerHealth;
+        [SerializeField] private CharacterHealth characterHealth;
 
         private void Awake()
         {
-            if (!healthBarFill || !playerHealth)
+            if (!healthBarFill || !characterHealth)
             {
                 #if UNITY_EDITOR
                 Debug.LogError($"[UI] Références manquantes sur {gameObject.name}. Script désactivé.");
@@ -20,7 +20,7 @@ namespace UI
                 return;
             }
 
-            playerHealth.OnHealthChanged += UpdateUI;
+            characterHealth.OnHealthChanged += UpdateUI;
         }
 
         private void UpdateUI(float current, float max)
@@ -33,9 +33,9 @@ namespace UI
 
         private void OnDestroy()
         {
-            if (playerHealth)
+            if (characterHealth)
             {
-                playerHealth.OnHealthChanged -= UpdateUI;
+                characterHealth.OnHealthChanged -= UpdateUI;
             }
         }
     }

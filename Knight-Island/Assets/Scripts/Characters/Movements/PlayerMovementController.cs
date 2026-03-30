@@ -7,18 +7,8 @@ namespace Characters.Movements
     {
         private CharacterMovement _charaMovement;
         private PlayerInputs _playerInputs;
-
-        private bool _isDead;
-        public bool IsDead => _isDead; 
         
-        public void SetDeadTrue()
-        {
-            _isDead = true;
-            _charaMovement.Direction = Vector2.zero;
-            Debug.Log("Mort du joueur activée via SetDeadTrue");
-        }
-        
-        public Vector2 CurrentDirection => _isDead ? Vector2.zero : _playerInputs.Movements.Direction.ReadValue<Vector2>();
+        public Vector2 CurrentDirection => _playerInputs.Movements.Direction.ReadValue<Vector2>();
 
         private void OnValidate()
         {
@@ -33,12 +23,6 @@ namespace Characters.Movements
 
         private void FixedUpdate()
         {
-            if (_isDead)
-            {
-                _charaMovement.Direction = Vector2.zero;
-                return;
-            }
-
             Vector2 direction = _playerInputs.Movements.Direction.ReadValue<Vector2>();
             _charaMovement.Direction = direction;
         }

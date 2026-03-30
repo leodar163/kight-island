@@ -430,17 +430,17 @@ MonoBehaviour:
   onPlayerDied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 69702284}
-        m_TargetAssemblyTypeName: Characters.PlayerMovementController, Assembly-CSharp
-        m_MethodName: SetDeadTrue
-        m_Mode: 1
+      - m_Target: {fileID: 1648796198}
+        m_TargetAssemblyTypeName: Characters.Movements.CharacterMovement, Assembly-CSharp
+        m_MethodName: set_CanMove
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &183829876
 GameObject:
@@ -1029,6 +1029,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 69702288}
   m_SourcePrefab: {fileID: 100100000, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+--- !u!114 &1648796198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1188868957415637171, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+  m_PrefabInstance: {fileID: 1648796197}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69702273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2cb030640df39489d488c7488a6237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Characters.CharacterMovement
 --- !u!1 &1743330139
 GameObject:
   m_ObjectHideFlags: 0

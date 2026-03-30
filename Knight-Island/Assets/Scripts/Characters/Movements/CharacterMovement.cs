@@ -11,11 +11,18 @@ namespace Characters.Movements
         [SerializeField] private float deceleration;
 
         private Vector2 _direction;
-
+        private bool _canMove = true;
+        
         public Vector2 Direction
         {
             get => _direction;
             set => _direction = value;
+        }
+
+        public bool CanMove
+        {
+            get => _canMove;
+            set => _canMove = value;
         }
 
         private void OnValidate()
@@ -29,11 +36,12 @@ namespace Characters.Movements
 
             ClampSpeed();
             
-            Decelerate(_direction);
+            Decelerate(_canMove ? _direction : Vector2.zero);
         }
 
         private void Accelerate(Vector2 direction)
         {
+            if (!_canMove) return;
             rb.linearVelocity += direction * (acceleration * Time.fixedDeltaTime);
         }
 
