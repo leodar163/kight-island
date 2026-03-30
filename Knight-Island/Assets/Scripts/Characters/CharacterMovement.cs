@@ -34,22 +34,19 @@ namespace Characters
                 rb.linearVelocity = Vector2.zero;
                 return;
             }
-    
+            
             Vector2 direction = _playerInputs.Movements.Direction.ReadValue<Vector2>();
-    
+            
             Accelerate(direction);
+
             ClampSpeed();
+            
             Decelerate(direction);
         }
 
         private void Accelerate(Vector2 direction)
         {
             rb.linearVelocity += direction * (acceleration * Time.fixedDeltaTime);
-        }
-        
-        public void SetDead()
-        {
-            isDead = true;
         }
 
         private void ClampSpeed()
