@@ -13,24 +13,18 @@ namespace Characters
 
         [Header("Events (Découplage)")]
         public UnityEvent onCharacterDied;
+
+        public UnityEvent<bool> onInvicibleFrame;
         public event Action<float, float> OnHealthChanged;
         public event Action OnDamageTaken;
         public float CurrentHealth => _currentHealth; 
-
+        
         private float _currentHealth;
-        private bool _isInvincible = false;
-        private bool _isDead = false;
+        private bool _isInvincible;
+        private bool _isDead;
 
-        private SpriteRenderer _spriteRenderer;
-        private Animator _animator;
 
         public bool IsDead => _isDead;
-
-        private void Awake()
-        {
-            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _animator = GetComponentInChildren<Animator>();
-        }
 
         private void Start()
         {
@@ -62,8 +56,6 @@ namespace Characters
             _isDead = true;
 
             StopAllCoroutines();
-            if (_spriteRenderer) _spriteRenderer.enabled = true;
-            if (_animator) _animator.SetTrigger("Die");
 
             onCharacterDied?.Invoke();
         }
@@ -78,15 +70,12 @@ namespace Characters
         private IEnumerator InvincibilityRoutine()
         {
             _isInvincible = true;
-            float timer = 0f;
-            while (timer < invincibilityDuration)
-            {
-                if (_spriteRenderer) _spriteRenderer.enabled = !_spriteRenderer.enabled;
-                yield return new WaitForSeconds(0.1f);
-                timer += 0.1f;
-            }
-            if (_spriteRenderer) _spriteRenderer.enabled = true;
+            onInvicibleFrame?.Invoke(_isInvincible);
+            
+            yield return new WaitForSeconds(invincibilityDuration);
+            
             _isInvincible = false;
+            onInvicibleFrame?.Invoke(_isInvincible);
         }
     }
 }

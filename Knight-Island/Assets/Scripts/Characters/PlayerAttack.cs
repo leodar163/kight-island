@@ -1,4 +1,5 @@
 using System.Collections;
+using Characters.Movements; // Obligatoire pour trouver CharacterMovement
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,10 +19,13 @@ namespace Characters
         [Header("Système de Hitbox")]
         [SerializeField] private GameObject attackHitbox;
         [SerializeField] private float hitboxDistance = 0.5f;
+
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
         
-        private PlayerMovementController _movementController; 
+        private CharacterMovement _charaMovement; 
+        private CharacterHealth _health; 
+        
         private bool _isAttacking = false;
 
         private void Awake()
@@ -29,15 +33,17 @@ namespace Characters
             _animator = GetComponentInChildren<Animator>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             
-            _movementController = GetComponent<PlayerMovementController>();
+            _charaMovement = GetComponent<CharacterMovement>();
+            _health = GetComponent<CharacterHealth>(); 
             
             if (_animator == null) Debug.LogError("Animator introuvable !");
-            if (_movementController == null) Debug.LogError("PlayerMovementController introuvable !");
+            if (_charaMovement == null) Debug.LogError("CharacterMovement introuvable !");
+            if (_health == null) Debug.LogError("Script de santé introuvable !");
         }
 
         private void Update()
         {
-            if (_movementController.IsDead) return;
+            if (_health.IsDead) return;
 
             if (Mouse.current.leftButton.wasPressedThisFrame && !_isAttacking)
             {
@@ -49,13 +55,13 @@ namespace Characters
         {
             _isAttacking = true;
     
-            _movementController.SetDead(true); 
+            _charaMovement.CanMove = false; 
 
             float lastX = _animator.GetFloat("InputX");
             float lastY = _animator.GetFloat("InputY");
 
             _animator.enabled = false;
-            _spriteRenderer.flipX = false; // Reset du flip au début
+            _spriteRenderer.flipX = false; 
     
             attackHitbox.SetActive(true);
             Vector2 hitboxPos = Vector2.zero;
@@ -79,6 +85,7 @@ namespace Characters
             }
 
             attackHitbox.transform.localPosition = hitboxPos * hitboxDistance;
+            
             StartCoroutine(AttackCooldownRoutine());
         }
 
@@ -90,9 +97,9 @@ namespace Characters
             _animator.enabled = true;
             _isAttacking = false;
     
-            if (!_movementController.IsDead) 
+            if (!_health.IsDead) 
             {
-                _movementController.SetDead(false); 
+                _charaMovement.CanMove = true; 
             }
         }
     }
