@@ -9,24 +9,40 @@ namespace UI
         [SerializeField] private PlayerHealth playerHealth;
         [SerializeField] private Image healthSlider; 
 
+        private void Awake()
+        {
+            if (!playerHealth || !healthSlider)
+            {
+                #if UNITY_EDITOR
+                Debug.LogError($"[UI] Références manquantes sur {gameObject.name}.");
+                #endif
+                enabled = false;
+                return;
+            }
+
+            playerHealth.OnHealthChanged += UpdateHealthBar;
+        }
+
         private void Start()
         {
-            playerHealth.OnHealthChanged += UpdateHealthBar;
-            
             UpdateHealthBar(playerHealth.CurrentHealth, 100f); 
         }
 
         private void UpdateHealthBar(float currentHealth, float maxHealth)
         {
-            float fillAmount = currentHealth / maxHealth;
-            healthSlider.fillAmount = fillAmount;
+            if (maxHealth > 0)
+            {
+                healthSlider.fillAmount = currentHealth / maxHealth;
+            }
             
-            print($"[HUD] Mise à jour de la barre : {fillAmount * 100}%");
         }
 
         private void OnDestroy()
         {
-            playerHealth.OnHealthChanged -= UpdateHealthBar;
+            if (playerHealth)
+            {
+                playerHealth.OnHealthChanged -= UpdateHealthBar;
+            }
         }
     }
 }

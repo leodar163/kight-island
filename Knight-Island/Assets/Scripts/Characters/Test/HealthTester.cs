@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using Characters;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Characters.Test
@@ -9,18 +7,27 @@ namespace Characters.Test
     {
         [SerializeField] private PlayerHealth playerHealth;
 
-        void Update()
+        private void Awake()
+        {
+            if (!playerHealth) 
+            {
+                Debug.LogWarning($"[TEST] PlayerHealth manquant sur {gameObject.name}. Script désactivé.");
+                enabled = false;
+            }
+        }
+
+        private void Update()
         {
             if (Keyboard.current.gKey.wasPressedThisFrame)
             {
                 playerHealth.TakeDamage(50f);
-                print($"[TEST] Dégâts infligés. Vie actuelle : {playerHealth.CurrentHealth}");
+                print($"[TEST] Dégâts appliqués. Vie : {playerHealth.CurrentHealth}");
             }
 
             if (Keyboard.current.hKey.wasPressedThisFrame)
             {
                 playerHealth.Heal(10f);
-                print($"[TEST] Soin appliqué. Vie actuelle : {playerHealth.CurrentHealth}");
+                print($"[TEST] Soin appliqué. Vie : {playerHealth.CurrentHealth}");
             }
         }
     }
