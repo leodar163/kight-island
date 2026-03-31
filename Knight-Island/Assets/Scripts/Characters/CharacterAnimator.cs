@@ -12,15 +12,23 @@ namespace Characters
         private static readonly int Vertical = Animator.StringToHash("Vertical");
         private static readonly int Moving = Animator.StringToHash("Moving");
         private static readonly int Die = Animator.StringToHash("Die");
-
-        [HideInInspector] [SerializeField] private Animator animator;
-        [HideInInspector] [SerializeField] private SpriteRenderer spriteRenderer;
+        private static readonly int AttackTrigger = Animator.StringToHash("Attack");
+        
+        [Header("Références")]
+        [SerializeField] private Animator animator;
+        [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private CharacterMovement charaMovement;
         [SerializeField] private CharacterHealth charaHealth;
         [Space]
-        [SerializeField] private float invincibilityBlinkDuration = 0.1f;
+        [SerializeField] private float invincibilityBlinkDuration = 0.5f;
         
-        private IEnumerator invincibilityRoutine;
+        private PlayerMovementController _playerController;
+        private IEnumerator _invincibilityRoutine;
+        
+        private void Awake()
+        {
+            _playerController = GetComponent<PlayerMovementController>();
+        }
         
         private void OnValidate()
         {
@@ -42,23 +50,47 @@ namespace Characters
 
         private void Update()
         {
-            SetLastDirection();
+            if (charaHealth != null && charaHealth.IsDead) return;
+            HandleAnimations();
+        }
+        
+        private void HandleAnimations()
+        {
+            Vector2 direction = charaMovement.Direction;
+    
+            if (direction.sqrMagnitude < 0.01f && _playerController != null)
+            {
+                direction = _playerController.CurrentDirection;
+            }
+
+            if (direction.sqrMagnitude > 0.01f)
+            {
+                animator.SetFloat(Horizontal, direction.x);
+                animator.SetFloat(Vertical, direction.y);
+            }
+    
+            animator.SetBool(Moving, charaMovement.Direction.sqrMagnitude > 0.01f);
+        }
+        
+        public void PlayAttack()
+        {
+            if (animator) animator.SetTrigger(AttackTrigger);
         }
 
         private void OnInvincible(bool isInvincible)
         {
             if (isInvincible)
             {
-                if (invincibilityRoutine != null) return;
+                if (_invincibilityRoutine != null) return;
 
-                invincibilityRoutine = InvincibilityRoutine();
-                StartCoroutine(invincibilityRoutine);
+                _invincibilityRoutine = InvincibilityRoutine();
+                StartCoroutine(_invincibilityRoutine);
             }
             else
             {
-                if (invincibilityRoutine == null) return;
-                StopCoroutine(invincibilityRoutine);
-                invincibilityRoutine = null;
+                if (_invincibilityRoutine == null) return;
+                StopCoroutine(_invincibilityRoutine);
+                _invincibilityRoutine = null;
                 spriteRenderer.enabled = true;
             }
         }
@@ -75,15 +107,6 @@ namespace Characters
         private void SetTriggerDied()
         {
             if (animator) animator.SetTrigger(Die);
-        }
-
-        private void SetLastDirection()
-        {
-            Vector2 direction = charaMovement.Direction;
-            
-            animator.SetFloat(Horizontal, direction.x);
-            animator.SetFloat(Vertical, direction.y);
-            animator.SetBool(Moving, direction.magnitude > 0);
         }
     }
 }

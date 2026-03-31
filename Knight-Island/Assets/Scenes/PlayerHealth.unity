@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee4faee8222f0b43bf6e49a4088b48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraSystem.CameraDamageFeedback
-  playerHealth: {fileID: 69702289}
+  characterHealth: {fileID: 69702288}
   cameraShake: {fileID: 5625631}
 --- !u!114 &5625631
 MonoBehaviour:
@@ -397,41 +397,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &69702273 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2904613292258820571, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+--- !u!114 &69702288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1714947544876281838, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
   m_PrefabInstance: {fileID: 1648796197}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &69702283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69702273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a851bd67aaea9b4ca5448e442ecba2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerAttack
-  attackFrontSprite: {fileID: -4562857918422641290, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
-  attackBackSprite: {fileID: 4749705327538671888, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
-  attackRightSprite: {fileID: 6967085260789904782, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
-  attackLeftSprite: {fileID: 6967085260789904782, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
-  attackDuration: 0.4
-  attackHitbox: {fileID: 383000719}
-  hitboxDistance: 0.5
---- !u!114 &69702289 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5370436195252609508, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-  m_PrefabInstance: {fileID: 1648796197}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69702273}
+  m_GameObject: {fileID: 1712070259}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 209d54353d6876446b7dd3843bc4d1c4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerHealth
+  m_EditorClassIdentifier: Assembly-CSharp::Characters.CharacterHealth
 --- !u!1 &183829876
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,89 +547,6 @@ RectTransform:
   m_AnchoredPosition: {x: 201.23381, y: -94.512085}
   m_SizeDelta: {x: 402.4676, y: 189.0242}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &383000719
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 383000720}
-  - component: {fileID: 383000721}
-  m_Layer: 6
-  m_Name: AttackHitbox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &383000720
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383000719}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 410369935}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &383000721
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383000719}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!4 &410369935 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7097928569739554944, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-  m_PrefabInstance: {fileID: 1648796197}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &597513148
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a2c7aa1d944b9a85cecc734ce6a77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Test.HealthTester
-  playerHealth: {fileID: 69702289}
+  characterHealth: {fileID: 69702288}
 --- !u!4 &1601049954
 Transform:
   m_ObjectHideFlags: 0
@@ -986,10 +879,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1549188472770221899, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1549188472770221899, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1030,45 +919,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2788249774549758711, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-      propertyPath: isDead
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2788249774549758711, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-      propertyPath: isAttacking
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2904613292258820571, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5370436195252609508, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-      propertyPath: healthBarFill
+    - target: {fileID: 3117527911004328640, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+      propertyPath: charaHealth
       value: 
-      objectReference: {fileID: 883541347}
-    - target: {fileID: 5390038924550402352, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5390038924550402352, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 36cf50a7eff696e4889b7853f35fc545, type: 2}
-    - target: {fileID: 7962081044723719443, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      objectReference: {fileID: 69702288}
+    - target: {fileID: 3117527911004328640, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+      propertyPath: invincibilityBlinkDuration
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7097928569739554944, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 383000720}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2904613292258820571, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 69702283}
+      addedObject: {fileID: 1712070264}
   m_SourcePrefab: {fileID: 100100000, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+--- !u!1 &1712070259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2904613292258820571, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+  m_PrefabInstance: {fileID: 1648796197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1712070264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712070259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a851bd67aaea9b4ca5448e442ecba2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerAttack
+  attackFrontSprite: {fileID: -4562857918422641290, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
+  attackBackSprite: {fileID: 4749705327538671888, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
+  attackRightSprite: {fileID: 6967085260789904782, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
+  attackLeftSprite: {fileID: 6967085260789904782, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
+  attackDuration: 0.5
+  attackHitbox: {fileID: 2028172652}
+  hitboxDistance: 0.5
 --- !u!1 &1743330139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee86e1c2d2070d3428b9df0329031aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.HealthBar
-  playerHealth: {fileID: 69702289}
+  characterHealth: {fileID: 69702288}
   healthSlider: {fileID: 883541347}
 --- !u!1 &2023879982
 GameObject:
@@ -1232,6 +1126,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023879982}
   m_CullTransparentMesh: 1
+--- !u!1 &2028172652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1334912714124778218, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+  m_PrefabInstance: {fileID: 1648796197}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
