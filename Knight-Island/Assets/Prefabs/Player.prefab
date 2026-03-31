@@ -128,7 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerMovementAnimation
   animator: {fileID: 5390038924550402352}
+  spriteRenderer: {fileID: 7962081044723719443}
   charaMovement: {fileID: 1188868957415637171}
+  charaHealth: {fileID: 0}
+  invincibilityBlinkDuration: 0.1
 --- !u!1 &1334912714124778218
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +214,7 @@ GameObject:
   - component: {fileID: 2788249774549758711}
   - component: {fileID: 1188868957415637171}
   - component: {fileID: 1714947544876281838}
+  - component: {fileID: 7166826780936927174}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -319,3 +323,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onInvicibleFrame:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7166826780936927174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904613292258820571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a851bd67aaea9b4ca5448e442ecba2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerAttack
+  attackFrontSprite: {fileID: -4562857918422641290, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
+  attackBackSprite: {fileID: 4749705327538671888, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
+  attackRightSprite: {fileID: 6967085260789904782, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
+  attackLeftSprite: {fileID: 6967085260789904782, guid: b1335291a7b5a2740ae18f23c5237f4d, type: 3}
+  attackDuration: 0.4
+  attackHitbox: {fileID: 1334912714124778218}
+  hitboxDistance: 0.5
