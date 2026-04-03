@@ -6,6 +6,7 @@ namespace Tiles
     [CreateAssetMenu(fileName = "Ruleset", menuName = "Tiles/Dual Tile Ruleset", order = 0)]
     public class DualTileRuleset : ScriptableObject
     {
+        [SerializeField] private TileBase r0000;
         [SerializeField] private TileBase r0001;
         [SerializeField] private TileBase r0010;
         [SerializeField] private TileBase r0011;
@@ -24,7 +25,7 @@ namespace Tiles
         
         public TileBase Evaluate(bool upLeft, bool upRight, bool downLeft, bool downRight)
         {
-            if (!upLeft && !upRight && !downLeft && !downRight) return null;
+            if (!upLeft && !upRight && !downLeft && !downRight) return r0000;
             if (!upLeft && !upRight && !downLeft && downRight)  return r0001;
             if (!upLeft && !upRight && downLeft && !downRight)  return r0010;
             if (!upLeft && !upRight && downLeft && downRight)   return r0011;

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71345cb4b4fb47dc990e2da8a90bfc86, type: 3}
   m_Name: DirtRuleset
   m_EditorClassIdentifier: Assembly-CSharp::Tiles.DualTileRuleset
+  r0000: {fileID: 11400000, guid: fc12fe68dfb85f143ad7682bd3ad4b8c, type: 2}
   r0001: {fileID: 11400000, guid: 0f326cc4a0ecfca4c878385255abdc80, type: 2}
   r0010: {fileID: 11400000, guid: 3f4e3b199a02dae4099856cd75c7024b, type: 2}
   r0011: {fileID: 11400000, guid: 94a0ff3ce613e364b816433946510379, type: 2}

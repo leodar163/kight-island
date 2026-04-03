@@ -8,6 +8,7 @@ namespace Tiles
     [RequireComponent(typeof(Tilemap), typeof(TilemapRenderer))]
     public class DualGrid : MonoBehaviour
     {
+        [SerializeField] private TileBase paintingTile;
         [SerializeField] private DualTileRuleset ruleset;
         [HideInInspector] [SerializeField] private Tilemap tilemap;
         [SerializeField] private Tilemap fakeTilemap;
@@ -43,9 +44,11 @@ namespace Tiles
             tilemap.ClearAllTiles();
             
             if (fakeTilemap == null) return;
+            if (paintingTile == null) return;
             
             if(fakeTilemapRenderer != null) fakeTilemapRenderer.enabled = showFakeTilemap;
             
+            fakeTilemap.CompressBounds();
             BoundsInt gridBounds = fakeTilemap.cellBounds;
             
             if (gridBounds.size.x < 2 || gridBounds.size.y < 2 ) return;
@@ -59,7 +62,12 @@ namespace Tiles
                     TileBase downLeft = fakeTilemap.GetTile(new Vector3Int(x, y, 0));
                     TileBase downRight = fakeTilemap.GetTile(new Vector3Int(x+1, y, 0));
                     
-                    TileBase evaluated = ruleset.Evaluate(upLeft != null, upRight != null, downLeft != null, downRight != null);
+                    TileBase evaluated = ruleset.Evaluate(
+                        upLeft == paintingTile, 
+                        upRight == paintingTile, 
+                        downLeft == paintingTile, 
+                        downRight == paintingTile
+                        );
                     
                     tilemap.SetTile(new Vector3Int(x, y, 0), evaluated);
                 }
