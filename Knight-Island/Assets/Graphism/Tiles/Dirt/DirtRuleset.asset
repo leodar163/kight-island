@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71345cb4b4fb47dc990e2da8a90bfc86, type: 3}
+  m_Name: DirtRuleset
+  m_EditorClassIdentifier: Assembly-CSharp::Tiles.DualTileRuleset
+  r0000: {fileID: 11400000, guid: fc12fe68dfb85f143ad7682bd3ad4b8c, type: 2}
+  r0001: {fileID: 11400000, guid: 0f326cc4a0ecfca4c878385255abdc80, type: 2}
+  r0010: {fileID: 11400000, guid: 3f4e3b199a02dae4099856cd75c7024b, type: 2}
+  r0011: {fileID: 11400000, guid: 94a0ff3ce613e364b816433946510379, type: 2}
+  r0100: {fileID: 11400000, guid: 14d1289843010f7478b0d511ff47e8bd, type: 2}
+  r0101: {fileID: 11400000, guid: 5d6fde83f9065aa4c9fc24da8d9a4a5e, type: 2}
+  r0110: {fileID: 11400000, guid: 31a0f96ccd631d04da341a91b6e00a43, type: 2}
+  r0111: {fileID: 11400000, guid: 99a903fa6a0d2dd49a13916c0544eb34, type: 2}
+  r1000: {fileID: 11400000, guid: e37672e0388ce874db76d525fe8c02c8, type: 2}
+  r1001: {fileID: 11400000, guid: 83ceca8f6ad33964f8f128614781d929, type: 2}
+  r1010: {fileID: 11400000, guid: 332b19d8a6a275946bdbfc274fec6132, type: 2}
+  r1011: {fileID: 11400000, guid: 8087f43f9bf272d44891ea9bb543e192, type: 2}
+  r1100: {fileID: 11400000, guid: 5d48cda8e71c83842b1a93ceb0ce8cf3, type: 2}
+  r1101: {fileID: 11400000, guid: c5584b7260f71ff46a8e09c18611c2dc, type: 2}
+  r1110: {fileID: 11400000, guid: 9f6a8d0204b2b1c49a728496c04f863c, type: 2}
+  r1111: {fileID: 11400000, guid: 6d87a8648e6791642b4bf6e8f1124ef3, type: 2}
