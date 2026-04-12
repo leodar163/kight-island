@@ -290,4 +290,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.CharacterAnimator
   animator: {fileID: 3065224507407308875}
+  spriteRenderer: {fileID: 2740930381901571215}
   charaMovement: {fileID: 1920463568526589515}

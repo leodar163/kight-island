@@ -103,7 +103,7 @@ Animator:
   m_GameObject: {fileID: 409099866733179315}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 36cf50a7eff696e4889b7853f35fc545, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1c731df5aaaca5147a2333b61bbd5d57, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerMovementAnimation
   animator: {fileID: 5390038924550402352}
+  spriteRenderer: {fileID: 7962081044723719443}
   charaMovement: {fileID: 1188868957415637171}
 --- !u!1 &1334912714124778218
 GameObject:

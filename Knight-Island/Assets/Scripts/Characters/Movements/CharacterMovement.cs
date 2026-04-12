@@ -15,8 +15,16 @@ namespace Characters.Movements
         public Vector2 Direction
         {
             get => _direction;
-            set => _direction = value;
+            set
+            {
+                if (value.magnitude > 0.01f) _facingDirection = value.normalized;
+                _direction = value;
+            }
         }
+
+        private Vector2 _facingDirection;
+
+        public Vector2 FacingDirection => _facingDirection;
 
         private void OnValidate()
         {
@@ -28,7 +36,7 @@ namespace Characters.Movements
             Accelerate(_direction);
 
             ClampSpeed();
-            
+
             Decelerate(_direction);
         }
 

@@ -1,4 +1,3 @@
-using System;
 using Characters.Movements;
 using UnityEngine;
 
@@ -12,6 +11,7 @@ namespace Characters
         private static readonly int Moving = Animator.StringToHash("Moving");
 
         [HideInInspector] [SerializeField] private Animator animator;
+        [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private CharacterMovement charaMovement;
         private void OnValidate()
         {
@@ -25,11 +25,14 @@ namespace Characters
 
         private void SetLastDirection()
         {
+            Vector2 facingDirection = charaMovement.FacingDirection;
             Vector2 direction = charaMovement.Direction;
             
-            animator.SetFloat(Horizontal, direction.x);
-            animator.SetFloat(Vertical, direction.y);
-            animator.SetBool(Moving, direction.magnitude > 0);
+            animator.SetFloat(Horizontal, facingDirection.x);
+            animator.SetFloat(Vertical, facingDirection.y);
+            animator.SetBool(Moving, direction.magnitude > 0.001f);
+            
+            spriteRenderer.flipX = facingDirection.x < -0.5f && Mathf.Abs(facingDirection.x) > Mathf.Abs(facingDirection.y); 
         }
     }
 }
