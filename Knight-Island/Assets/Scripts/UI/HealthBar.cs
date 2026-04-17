@@ -6,12 +6,12 @@ namespace UI
 {
     public class HealthBar : MonoBehaviour
     {
-        [SerializeField] private PlayerHealth playerHealth;
+        [SerializeField] private CharacterHealth characterHealth;
         [SerializeField] private Image healthSlider; 
 
         private void Awake()
         {
-            if (!playerHealth || !healthSlider)
+            if (!characterHealth || !healthSlider)
             {
                 #if UNITY_EDITOR
                 Debug.LogError($"[UI] Références manquantes sur {gameObject.name}.");
@@ -20,12 +20,12 @@ namespace UI
                 return;
             }
 
-            playerHealth.OnHealthChanged += UpdateHealthBar;
+            characterHealth.OnHealthChanged += UpdateHealthBar;
         }
 
         private void Start()
         {
-            UpdateHealthBar(playerHealth.CurrentHealth, 100f); 
+            UpdateHealthBar(characterHealth.CurrentHealth, 100f); 
         }
 
         private void UpdateHealthBar(float currentHealth, float maxHealth)
@@ -39,9 +39,9 @@ namespace UI
 
         private void OnDestroy()
         {
-            if (playerHealth)
+            if (characterHealth)
             {
-                playerHealth.OnHealthChanged -= UpdateHealthBar;
+                characterHealth.OnHealthChanged -= UpdateHealthBar;
             }
         }
     }
