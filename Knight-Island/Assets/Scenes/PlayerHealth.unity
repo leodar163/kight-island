@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a2c7aa1d944b9a85cecc734ce6a77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Test.HealthTester
-  health: {fileID: 0}
+  health: {fileID: 69702288}
 --- !u!4 &1601049954
 Transform:
   m_ObjectHideFlags: 0
@@ -990,10 +990,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5390038924550402352, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 36cf50a7eff696e4889b7853f35fc545, type: 2}
     - target: {fileID: 7962081044723719443, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
       propertyPath: m_Enabled
       value: 1
