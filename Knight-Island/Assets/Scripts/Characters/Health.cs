@@ -21,6 +21,9 @@ namespace Characters
         private bool _isInvincible;
         private bool _isDead;
 
+
+        public float MaxHealth => maxHealth;
+
         public bool IsDead => _isDead;
         public bool IsInvincible => _isInvincible;
 

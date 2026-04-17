@@ -46,6 +46,10 @@ namespace Characters.Movements
             {
                 Accelerate(_direction);
             }
+            else
+            {
+                _direction = Vector2.zero;
+            }
 
             ClampSpeed();
 

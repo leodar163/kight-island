@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Characters;
 
-namespace UI
+namespace UI.Health
 {
     public class HealthBar : MonoBehaviour
     {
-        [SerializeField] private Health health;
+        [SerializeField] private Characters.Health health;
         [SerializeField] private Image healthSlider; 
 
         private void Awake()
@@ -25,7 +24,7 @@ namespace UI
 
         private void Start()
         {
-            UpdateHealthBar(health.CurrentHealth, 100f); 
+            UpdateHealthBar(health.CurrentHealth, health.MaxHealth); 
         }
 
         private void UpdateHealthBar(float currentHealth, float maxHealth)

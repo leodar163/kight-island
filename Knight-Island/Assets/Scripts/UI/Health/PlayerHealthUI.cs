@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Characters;
 
-namespace UI
+namespace UI.Health
 {
     public class PlayerHealthUI : MonoBehaviour
     {
         [SerializeField] private Image healthBarFill;
-        [SerializeField] private Health health;
+        [SerializeField] private Characters.Health health;
 
         private void Awake()
         {

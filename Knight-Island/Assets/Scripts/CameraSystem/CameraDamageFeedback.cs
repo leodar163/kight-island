@@ -17,7 +17,7 @@ namespace CameraSystem
 
         private void OnDisable()
         {
-            health.onDamageTaken.RemoveListener(Shake);
+                health.onDamageTaken.RemoveListener(Shake);
         }
 
         private void Shake() 
