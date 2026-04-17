@@ -5,32 +5,24 @@ using UnityEngine.Events;
 
 namespace Characters
 {
-    public class CharacterHealth : MonoBehaviour
+    public class Health : MonoBehaviour
     {
         [Header("Settings")]
         [SerializeField] private float invincibilityDuration = 1.0f;
         [SerializeField] private float maxHealth = 100f;
 
         [Header("Events (Découplage)")]
-        public UnityEvent onCharacterDied;
+        public UnityEvent onHealthReachZero;
         public event Action<float, float> OnHealthChanged;
-        public event Action OnDamageTaken;
+        public UnityEvent onDamageTaken;
         public float CurrentHealth => _currentHealth; 
 
         private float _currentHealth;
-        private bool _isInvincible = false;
-        private bool _isDead = false;
-
-        private SpriteRenderer _spriteRenderer;
-        private Animator _animator;
+        private bool _isInvincible;
+        private bool _isDead;
 
         public bool IsDead => _isDead;
-
-        private void Awake()
-        {
-            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _animator = GetComponentInChildren<Animator>();
-        }
+        public bool IsInvincible => _isInvincible;
 
         private void Start()
         {
@@ -43,8 +35,6 @@ namespace Characters
             if (_isInvincible || _isDead) return;
 
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, maxHealth);
-            OnHealthChanged?.Invoke(_currentHealth, maxHealth);
-            OnDamageTaken?.Invoke();
 
             if (_currentHealth <= 0)
             {
@@ -54,6 +44,9 @@ namespace Characters
             {
                 StartCoroutine(InvincibilityRoutine());
             }
+            
+            OnHealthChanged?.Invoke(_currentHealth, maxHealth);
+            onDamageTaken?.Invoke();
         }
 
         private void Die()
@@ -62,10 +55,8 @@ namespace Characters
             _isDead = true;
 
             StopAllCoroutines();
-            if (_spriteRenderer) _spriteRenderer.enabled = true;
-            if (_animator) _animator.SetTrigger("Die");
 
-            onCharacterDied?.Invoke();
+            onHealthReachZero?.Invoke();
         }
 
         public void Heal(float amount)
@@ -78,14 +69,9 @@ namespace Characters
         private IEnumerator InvincibilityRoutine()
         {
             _isInvincible = true;
-            float timer = 0f;
-            while (timer < invincibilityDuration)
-            {
-                if (_spriteRenderer) _spriteRenderer.enabled = !_spriteRenderer.enabled;
-                yield return new WaitForSeconds(0.1f);
-                timer += 0.1f;
-            }
-            if (_spriteRenderer) _spriteRenderer.enabled = true;
+            
+            yield return new WaitForSeconds(invincibilityDuration);
+
             _isInvincible = false;
         }
     }

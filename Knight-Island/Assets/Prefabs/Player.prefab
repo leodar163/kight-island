@@ -130,6 +130,8 @@ MonoBehaviour:
   animator: {fileID: 5390038924550402352}
   spriteRenderer: {fileID: 7962081044723719443}
   charaMovement: {fileID: 1188868957415637171}
+  charaHealth: {fileID: 141331574640137868}
+  invincibleFrameBlinkDuration: 0.1
 --- !u!1 &1334912714124778218
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +213,7 @@ GameObject:
   - component: {fileID: 1375692921150391052}
   - component: {fileID: 2788249774549758711}
   - component: {fileID: 1188868957415637171}
+  - component: {fileID: 141331574640137868}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -290,3 +293,36 @@ MonoBehaviour:
   maxSpeed: 4
   acceleration: 16
   deceleration: 16
+  canMove: 1
+--- !u!114 &141331574640137868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904613292258820571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209d54353d6876446b7dd3843bc4d1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerHealth
+  invincibilityDuration: 2
+  maxHealth: 100
+  onHealthReachZero:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1188868957415637171}
+        m_TargetAssemblyTypeName: Characters.Movements.CharacterMovement, Assembly-CSharp
+        m_MethodName: set_CanMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []

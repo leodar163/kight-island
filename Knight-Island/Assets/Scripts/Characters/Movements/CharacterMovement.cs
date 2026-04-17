@@ -10,6 +10,14 @@ namespace Characters.Movements
         [SerializeField] private float acceleration;
         [SerializeField] private float deceleration;
 
+        [SerializeField] private bool canMove = true;
+
+        public bool CanMove
+        {
+            get => canMove;
+            set => canMove = value;
+        }
+        
         private Vector2 _direction;
 
         public Vector2 Direction
@@ -17,6 +25,7 @@ namespace Characters.Movements
             get => _direction;
             set
             {
+                if (!canMove) return;
                 if (value.magnitude > 0.01f) _facingDirection = value.normalized;
                 _direction = value;
             }
@@ -33,7 +42,10 @@ namespace Characters.Movements
 
         private void FixedUpdate()
         {
-            Accelerate(_direction);
+            if (canMove)
+            {
+                Accelerate(_direction);
+            }
 
             ClampSpeed();
 

@@ -5,11 +5,11 @@ namespace Characters.Test
 {
     public class HealthTester : MonoBehaviour
     {
-        [SerializeField] private CharacterHealth characterHealth;
+        [SerializeField] private Health health;
 
         private void Awake()
         {
-            if (!characterHealth) 
+            if (!health) 
             {
                 Debug.LogWarning($"[TEST] PlayerHealth manquant sur {gameObject.name}. Script désactivé.");
                 enabled = false;
@@ -20,14 +20,14 @@ namespace Characters.Test
         {
             if (Keyboard.current.gKey.wasPressedThisFrame)
             {
-                characterHealth.TakeDamage(50f);
-                print($"[TEST] Dégâts appliqués. Vie : {characterHealth.CurrentHealth}");
+                health.TakeDamage(50f);
+                print($"[TEST] Dégâts appliqués. Vie : {health.CurrentHealth}");
             }
 
             if (Keyboard.current.hKey.wasPressedThisFrame)
             {
-                characterHealth.Heal(10f);
-                print($"[TEST] Soin appliqué. Vie : {characterHealth.CurrentHealth}");
+                health.Heal(10f);
+                print($"[TEST] Soin appliqué. Vie : {health.CurrentHealth}");
             }
         }
     }
