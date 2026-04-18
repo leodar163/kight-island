@@ -41,6 +41,7 @@ namespace Characters
 
         private bool TryTargetOnPlayer()
         {
+            if (_player == null) return false;
             if (!(Vector2.Distance(_player.transform.position, transform.position) < playerTargetingDistance))
                 return false;
             
