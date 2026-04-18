@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2733840551489029596}
   - component: {fileID: 1920463568526589515}
   - component: {fileID: 7431441322306617503}
+  - component: {fileID: 4498068987749121669}
   - component: {fileID: 7571811284767439350}
   - component: {fileID: 5672148214348078349}
   m_Layer: 8
@@ -79,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.CharacterMovement
   rb: {fileID: 2733840551489029596}
-  maxSpeed: 4
+  maxSpeed: 2
   acceleration: 16
   deceleration: 16
   canMove: 1
@@ -97,6 +98,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Movements.EnemyMovementController
   target: {fileID: 0}
   targetDeadZone: 0.5
+--- !u!114 &4498068987749121669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887347879837732555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0034209bdc174d118f84bf7d2283bf40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Characters.EnemyTargetController
+  movementController: {fileID: 7431441322306617503}
+  playerTargetingDistance: 4
 --- !u!114 &7571811284767439350
 MonoBehaviour:
   m_ObjectHideFlags: 0

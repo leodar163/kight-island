@@ -11,8 +11,12 @@ namespace Characters.Movements
         [Tooltip("La distance de la cible à partir de laquelle l'ennemie cesse d'accélerer")]
         [SerializeField] private float targetDeadZone = 0.5f;
         
-        public Transform Target => target;
-        
+        public Transform Target
+        {
+            get => target;
+            set => target = value;
+        }
+
         private void OnValidate()
         {
             if(_charaMovement == null) TryGetComponent(out _charaMovement);
