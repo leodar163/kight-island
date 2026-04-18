@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1920463568526589515}
   - component: {fileID: 7431441322306617503}
   - component: {fileID: 7571811284767439350}
-  m_Layer: 6
+  - component: {fileID: 5672148214348078349}
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +35,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 258354560756670159}
-  - {fileID: 406192817561981192}
   - {fileID: 4035953125305898837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -125,60 +125,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7771674797538622757}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2733840551489029596}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+        m_MethodName: set_mass
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &7771674797538622757
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 406192817561981192}
-  - component: {fileID: 1636398514339675169}
-  m_Layer: 6
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &406192817561981192
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7771674797538622757}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1718586462185637864}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1636398514339675169
+--- !u!70 &5672148214348078349
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7771674797538622757}
+  m_GameObject: {fileID: 887347879837732555}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -206,8 +174,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.46875}
-  m_Size: {x: 0.56, y: 0.9375}
+  m_Offset: {x: 0, y: 0.24977928}
+  m_Size: {x: 0.37632066, y: 0.5}
   m_Direction: 0
 --- !u!1 &8462243442256866323
 GameObject:
@@ -221,7 +189,7 @@ GameObject:
   - component: {fileID: 2740930381901571215}
   - component: {fileID: 3065224507407308875}
   - component: {fileID: 6994976638641539639}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +320,7 @@ GameObject:
   - component: {fileID: 4035953125305898837}
   - component: {fileID: 8602392878191919846}
   - component: {fileID: 7420589748507676282}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
