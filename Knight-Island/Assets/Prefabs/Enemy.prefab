@@ -81,9 +81,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.CharacterMovement
   rb: {fileID: 2733840551489029596}
-  maxSpeed: 2
-  acceleration: 16
-  deceleration: 16
+  maxSpeed: 3
+  acceleration: 32
+  deceleration: 32
   canMove: 1
 --- !u!114 &7431441322306617503
 MonoBehaviour:

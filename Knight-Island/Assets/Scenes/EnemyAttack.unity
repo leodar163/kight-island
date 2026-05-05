@@ -276,6 +276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4993227044961834579, guid: 5e068078817596b4eac9f43c6f4d1470, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1158502205}
     - target: {fileID: 5757837506771261550, guid: 5e068078817596b4eac9f43c6f4d1470, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -439,6 +443,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+--- !u!1 &1158502205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2904613292258820571, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+  m_PrefabInstance: {fileID: 1158502204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1224028646
 PrefabInstance:
   m_ObjectHideFlags: 0
