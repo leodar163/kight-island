@@ -1,4 +1,5 @@
-﻿using Characters.Movements;
+﻿using System.Collections.Generic;
+using Characters.Movements;
 using UnityEngine;
 
 namespace Characters.Attack
@@ -8,7 +9,8 @@ namespace Characters.Attack
         [SerializeField] private EnemyMovementController movementController;
         [SerializeField] private float attackDistance;
         [SerializeField] private Vector2 attackDistanceOffset;
-
+        [SerializeField] private LayerMask attackFilter;
+        
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
@@ -18,9 +20,13 @@ namespace Characters.Attack
         private void Update()
         {
             if (!movementController.Target) return;
-            if (!IsAttacking &&
-                Vector2.Distance(movementController.Target.position, 
-                    attackDistanceOffset + (Vector2)transform.position) <= attackDistance)
+            
+            Collider2D col = Physics2D.OverlapCircle((Vector2)transform.position + attackDistanceOffset, attackDistance, attackFilter);
+
+            if (col == null) return;
+            
+            if (!IsAttacking && 
+                col.transform == movementController.Target || col.transform.parent == movementController.Target)
             {
                 Attack();
             }

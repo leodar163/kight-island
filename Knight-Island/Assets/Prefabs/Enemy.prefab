@@ -178,6 +178,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2846412991441447824}
+        m_TargetAssemblyTypeName: Characters.Attack.EnemyAttackController, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
@@ -387,6 +399,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.AttackZone
   damage: 10
+  col: {fileID: 1727304334657379620}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!1 &4155062320679607907
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,6 +502,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.AttackZone
   damage: 10
+  col: {fileID: 8616800602814467833}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!1 &5075865720266126894
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +606,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.AttackZone
   damage: 10
+  col: {fileID: 5285887841359969535}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!1 &6295190458531088912
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,6 +708,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.AttackZone
   damage: 10
+  col: {fileID: 8773316524090967996}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!1 &7364332275774614054
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,10 +894,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.EnemyAttackController
   animator: {fileID: 3065224507407308875}
   charaMovement: {fileID: 1920463568526589515}
+  attackCooldown: 1
   azFront: {fileID: 2407216893498334983}
   azBack: {fileID: 5075865720266126894}
   azLeft: {fileID: 6295190458531088912}
   azRight: {fileID: 4155062320679607907}
+  canAttack: 1
   onAttacking:
     m_PersistentCalls:
       m_Calls: []
@@ -877,8 +907,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   movementController: {fileID: 7431441322306617503}
-  attackDistance: 0.75
+  attackDistance: 0.4
   attackDistanceOffset: {x: 0, y: 0.1}
+  attackFilter:
+    serializedVersion: 2
+    m_Bits: 576
 --- !u!1 &8515556517574241304
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +924,7 @@ GameObject:
   - component: {fileID: 8602392878191919846}
   - component: {fileID: 7420589748507676282}
   m_Layer: 8
-  m_Name: Square
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

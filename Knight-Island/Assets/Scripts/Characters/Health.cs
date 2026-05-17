@@ -43,7 +43,7 @@ namespace Characters
             {
                 Die();
             }
-            else
+            else if (invincibilityDuration > 0)
             {
                 StartCoroutine(InvincibilityRoutine());
             }

@@ -1,3 +1,4 @@
+using System.Collections;
 using Characters.Movements;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,6 +10,9 @@ namespace Characters.Attack
         private static readonly int AttackTrigger = Animator.StringToHash("Attack");
         [SerializeField] private Animator animator;
         [SerializeField] private CharacterMovement charaMovement;
+        [SerializeField] private float attackCooldown = 1;
+
+        private IEnumerator _attackCooldownRoutine;
 
         [Header("Attack zones")] [SerializeField]
         private GameObject azFront;
@@ -18,6 +22,7 @@ namespace Characters.Attack
         [SerializeField] private GameObject azRight;
 
         private bool _isAttacking;
+        public bool canAttack = true;
 
         public bool IsAttacking => _isAttacking;
 
@@ -32,8 +37,9 @@ namespace Characters.Attack
         
         protected void Attack()
         {
-            if (_isAttacking) return;
+            if (!canAttack) return;
 
+            canAttack = false;
             _isAttacking = true;
             animator.SetTrigger(AttackTrigger);
             charaMovement.CanMove = false;
@@ -65,8 +71,24 @@ namespace Characters.Attack
         public void CancelAttack()
         {
             _isAttacking = false;
-            charaMovement.CanMove = true;
             onAttackEnded.Invoke();
+            charaMovement.CanMove = true;
+            StartAttackCooldown();
+        }
+
+        private void StartAttackCooldown()
+        {
+            if (_attackCooldownRoutine != null) 
+                StopCoroutine(_attackCooldownRoutine);
+
+            _attackCooldownRoutine = AttackCooldownRoutine();
+            StartCoroutine(_attackCooldownRoutine);
+        }
+
+        private IEnumerator AttackCooldownRoutine()
+        {
+            yield return new WaitForSeconds(attackCooldown);
+            canAttack = true;
         }
     }
 }
