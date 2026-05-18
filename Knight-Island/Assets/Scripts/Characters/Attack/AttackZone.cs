@@ -10,7 +10,7 @@ namespace Characters.Attack
         [SerializeField] [Min(0)] private int damage;
         [HideInInspector] [SerializeField] private Collider2D col;
         [SerializeField] private LayerMask targetLayers;
-        private readonly List<Collider2D> colResults = new();
+        private readonly List<Collider2D> _colResults = new();
 
         private void OnValidate()
         {
@@ -21,20 +21,22 @@ namespace Characters.Attack
         {
             ContactFilter2D filter = new ()
             {
-                layerMask = targetLayers
+                layerMask = targetLayers,
+                useLayerMask = true
             };
 
-            col.Overlap(filter, colResults);
+            col.Overlap(filter, _colResults);
 
-            foreach (Collider2D result in colResults)
+            foreach (Collider2D result in _colResults)
             {
+                print(result.gameObject.layer);
                 if (result.TryGetComponent(out Health health))
                 {
                     health.TakeDamage(damage);
                 }
             }
             
-            colResults.Clear();
+            _colResults.Clear();
         }
     }
 }

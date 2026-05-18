@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 1238098239408171882}
   - component: {fileID: 1727304334657379620}
   - component: {fileID: 96856925441598141}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ MonoBehaviour:
   col: {fileID: 1727304334657379620}
   targetLayers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 576
 --- !u!1 &4155062320679607907
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 2057355187973630436}
   - component: {fileID: 8616800602814467833}
   - component: {fileID: 4116911155220121575}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ MonoBehaviour:
   col: {fileID: 8616800602814467833}
   targetLayers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 576
 --- !u!1 &5075865720266126894
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 1960789152455742658}
   - component: {fileID: 5285887841359969535}
   - component: {fileID: 4613556189362403473}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ MonoBehaviour:
   col: {fileID: 5285887841359969535}
   targetLayers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 576
 --- !u!1 &6295190458531088912
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 1682542926166600294}
   - component: {fileID: 8773316524090967996}
   - component: {fileID: 6597579939195052153}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +711,7 @@ MonoBehaviour:
   col: {fileID: 8773316524090967996}
   targetLayers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 576
 --- !u!1 &7364332275774614054
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +721,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 410465157291923585}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackZones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
