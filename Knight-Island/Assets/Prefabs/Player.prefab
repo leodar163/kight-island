@@ -147,10 +147,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.PayerAttackController
   animator: {fileID: 5390038924550402352}
   charaMovement: {fileID: 1188868957415637171}
+  attackCooldown: 1
   azFront: {fileID: 5494381162262662069}
   azBack: {fileID: 6676987087546208563}
   azLeft: {fileID: 7339920864091645957}
   azRight: {fileID: 3024085838162564829}
+  canAttack: 1
   onAttacking:
     m_PersistentCalls:
       m_Calls: []
@@ -422,6 +424,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.AttackZone
   damage: 50
+  col: {fileID: 933399832046515174}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5494381162262662069
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +529,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.AttackZone
   damage: 50
+  col: {fileID: 3961833862870628769}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6676987087546208563
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +633,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.AttackZone
   damage: 50
+  col: {fileID: 5507814290764359965}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &7339920864091645957
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +739,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.AttackZone
   damage: 50
+  col: {fileID: 8109712725032864725}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &7626034710728216965
 GameObject:
   m_ObjectHideFlags: 0
