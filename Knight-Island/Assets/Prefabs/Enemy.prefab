@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209d54353d6876446b7dd3843bc4d1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Health
-  invincibilityDuration: 0
+  invincibilityDuration: 0.1
   maxHealth: 100
   onHealthReachZero:
     m_PersistentCalls:

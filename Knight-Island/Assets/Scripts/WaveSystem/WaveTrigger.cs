@@ -12,6 +12,8 @@ namespace WaveSystem
         private bool isTriggering;
         private float triggerProgression;
         
+        public float TrirgerProgression => triggerProgression;
+        
         private void Awake()
         {
             _playerInputs = new PlayerInputs();
