@@ -1,3 +1,4 @@
+using Characters;
 using UnityEngine;
 using Utils;
 
@@ -7,5 +8,13 @@ namespace Managers
     {
         [SerializeField] private GameObject player;
         public static GameObject Player => Instance.player;
+
+        public void RestorePlayer()
+        {
+            if (player != null && player.TryGetComponent(out Health playerHealth))
+            {
+                playerHealth.Heal();
+            }
+        }
     }
 }

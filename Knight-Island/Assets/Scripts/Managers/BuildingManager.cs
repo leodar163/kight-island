@@ -24,5 +24,16 @@ namespace Managers
                 }
             }
         }
+        
+        public void RestoreBuildings()
+        {
+            foreach (GameObject building in buildings)
+            {
+                if (building.TryGetComponent(out Health health))
+                {
+                    health.Heal();
+                }
+            }
+        }
     }
 }

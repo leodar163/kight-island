@@ -176,6 +176,36 @@ MonoBehaviour:
   - {x: 0, y: -30}
   - {x: 30, y: 0}
   enemyTemplate: {fileID: 887347879837732555, guid: bf6a87a9c90739648a809bf3b44cf87d, type: 3}
+  onWaveEnds:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4993227044961834579}
+        m_TargetAssemblyTypeName: Managers.PlayerManager, Assembly-CSharp
+        m_MethodName: RestorePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3426819872509808970}
+        m_TargetAssemblyTypeName: Managers.BuildingManager, Assembly-CSharp
+        m_MethodName: RestoreBuildings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onWaveBegins:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8887125068006303478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,4 +218,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7b43e0e1a7439e925e4bb8ebf03da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSystem.WaveTrigger
-  triggerProgressionSpeed: 0.3
+  triggerProgressionSpeed: 0.4

@@ -62,6 +62,11 @@ namespace Characters
             onHealthReachZero?.Invoke();
         }
 
+        public void Heal()
+        {
+            Heal(maxHealth);
+        }
+        
         public void Heal(float amount)
         {
             if (_isDead) return;

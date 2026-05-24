@@ -51,6 +51,8 @@ namespace WaveSystem
 
         private void Update()
         {
+            if (WaveManager.Instance.IsDuringWave) return;
+            
             if (isTriggering) 
                 triggerProgression += triggerProgressionSpeed * Time.deltaTime;
             else 
@@ -59,7 +61,10 @@ namespace WaveSystem
             triggerProgression = Mathf.Clamp(triggerProgression, 0f, 1f);
             
             if (triggerProgression >= 1f)
+            {
                 WaveManager.Instance.TriggerNextWave();
+                triggerProgression = 0f;
+            }
                 
         }
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Characters;
 using UnityEngine;
+using UnityEngine.Events;
 using Utils;
 
 namespace WaveSystem
@@ -23,6 +24,10 @@ namespace WaveSystem
         public int WaveNbr =>  waveNbr;
 
         public bool IsEndOfSequence => waveNbr >= sequence.Waves.Count;
+        public bool IsDuringWave => currentWave != null;
+
+        [SerializeField] public UnityEvent onWaveEnds;
+        [SerializeField] public UnityEvent onWaveBegins;
 
         private void OnDrawGizmosSelected()
         {
@@ -61,11 +66,13 @@ namespace WaveSystem
             triggeredSpawns.Clear();
             finishedSpawns.Clear();
             enemyCount = 0;
+            onWaveBegins.Invoke();
         }
         
         private void EndCurrentWave()
         {
             currentWave = null;
+            onWaveEnds.Invoke();
         }
 
         private void HandleWave(WaveData wave)
@@ -73,11 +80,10 @@ namespace WaveSystem
             float time = Time.time;
             foreach (SpawnData spawn in currentWave.spawns)
             {
-                if (time >= spawn.spawnTime && !triggeredSpawns.Contains(spawn))
-                {
-                    StartCoroutine(SpawnRoutine(spawn));
-                    triggeredSpawns.Add(spawn);
-                }
+                if (!(time - triggerWaveTime >= spawn.spawnTime) || triggeredSpawns.Contains(spawn)) continue;
+                
+                StartCoroutine(SpawnRoutine(spawn));
+                triggeredSpawns.Add(spawn);
             }
         }
 
