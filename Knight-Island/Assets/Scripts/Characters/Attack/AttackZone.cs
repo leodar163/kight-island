@@ -29,7 +29,6 @@ namespace Characters.Attack
 
             foreach (Collider2D result in _colResults)
             {
-                print(result.gameObject.layer);
                 if (result.TryGetComponent(out Health health))
                 {
                     health.TakeDamage(damage);

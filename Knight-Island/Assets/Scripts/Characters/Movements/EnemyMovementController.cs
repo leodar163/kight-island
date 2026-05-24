@@ -6,7 +6,7 @@ namespace Characters.Movements
     [RequireComponent(typeof(CharacterMovement))]
     public class EnemyMovementController : MonoBehaviour
     {
-        private CharacterMovement _charaMovement;
+        [SerializeField] private CharacterMovement charaMovement;
         [SerializeField] private Transform target;
         [Tooltip("La distance de la cible à partir de laquelle l'ennemie cesse d'accélerer")]
         [SerializeField] private float targetDeadZone = 0.5f;
@@ -19,7 +19,7 @@ namespace Characters.Movements
 
         private void OnValidate()
         {
-            if(_charaMovement == null) TryGetComponent(out _charaMovement);
+            if(charaMovement == null) TryGetComponent(out charaMovement);
         }
 
         private void FixedUpdate()
@@ -35,7 +35,7 @@ namespace Characters.Movements
 
             } 
             
-            _charaMovement.Direction = direction;
+            charaMovement.Direction = direction;
         }
     }
 }

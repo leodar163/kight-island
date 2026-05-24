@@ -30,7 +30,7 @@ namespace Characters.Attack
             if (_playerInputs != null)
             {
                 _playerInputs.Actions.Attack.canceled -= PlayerAttack;
-                _playerInputs.Enable();
+                _playerInputs.Disable();
             }
         }
 

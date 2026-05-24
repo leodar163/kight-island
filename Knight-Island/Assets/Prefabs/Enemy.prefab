@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f53aba11f5b4b9aa18570e86fdcec08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Movements.EnemyMovementController
+  charaMovement: {fileID: 1920463568526589515}
   target: {fileID: 0}
   targetDeadZone: 0.5
 --- !u!114 &4498068987749121669

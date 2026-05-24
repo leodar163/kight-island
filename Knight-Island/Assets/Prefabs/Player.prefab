@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Characters.Attack.PayerAttackController
   animator: {fileID: 5390038924550402352}
   charaMovement: {fileID: 1188868957415637171}
-  attackCooldown: 1
+  attackCooldown: 0.1
   azFront: {fileID: 5494381162262662069}
   azBack: {fileID: 6676987087546208563}
   azLeft: {fileID: 7339920864091645957}
