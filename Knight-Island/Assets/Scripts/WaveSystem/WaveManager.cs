@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Characters;
+using Managers;
 using UnityEngine;
 using UnityEngine.Events;
 using Utils;
@@ -15,7 +16,6 @@ namespace WaveSystem
         [SerializeField] private GameObject enemyTemplate;
         
         private int waveNbr;
-        private int enemyCount;
         private WaveData currentWave;
         private float triggerWaveTime;
         private readonly List<SpawnData> triggeredSpawns = new();
@@ -44,7 +44,7 @@ namespace WaveSystem
             {
                 HandleWave(currentWave);
 
-                if (finishedSpawns.Count >= currentWave.spawns.Count && enemyCount == 0)
+                if (finishedSpawns.Count >= currentWave.spawns.Count && EnemyFactory.EnemyCount == 0)
                 {
                     EndCurrentWave();
                 }
@@ -65,7 +65,6 @@ namespace WaveSystem
             triggerWaveTime = Time.time;
             triggeredSpawns.Clear();
             finishedSpawns.Clear();
-            enemyCount = 0;
             onWaveBegins.Invoke();
         }
         
@@ -91,11 +90,7 @@ namespace WaveSystem
         {
             for (int i = 1; i < spawn.nbrToSpawn; i++)
             {
-                if (Instantiate(enemyTemplate, spawnPoints[spawn.spawnPoint], new Quaternion()).TryGetComponent(out Health health))
-                {
-                    enemyCount++;
-                    health.onHealthReachZero.AddListener(() => { enemyCount--;});
-                }
+                EnemyFactory.TryInstantiateEnemy(spawnPoints[spawn.spawnPoint], out Health _);
                 yield return new WaitForSeconds(1f);
             }
             
