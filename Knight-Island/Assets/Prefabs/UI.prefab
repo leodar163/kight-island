@@ -437,6 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8129786203462948282}
+  - component: {fileID: 1070716273830953045}
   m_Layer: 5
   m_Name: WaveCounter
   m_TagString: Untagged
@@ -464,6 +465,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 34.78078, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1070716273830953045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3227104964971380902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef861b6ea459475ba40a7e3d51690302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveSystem.UI.WaveCounter
+  text: {fileID: 8339002824617315549}
 --- !u!1 &4768052006381788119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 894110175743011397}
+  - component: {fileID: 5191277621790300119}
   m_Layer: 5
   m_Name: EnemyCounter
   m_TagString: Untagged
@@ -1234,6 +1249,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 76, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5191277621790300119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7976668540150689094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245c8db5a3674792ae8d6d7b4b163e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveSystem.UI.EnemyCounter
+  text: {fileID: 1006148001945005418}
 --- !u!1 &8774130011553360396
 GameObject:
   m_ObjectHideFlags: 0
