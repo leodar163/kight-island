@@ -35,5 +35,20 @@ namespace Managers
                 }
             }
         }
+
+        public List<Health> GetBuildingsHealth()
+        {
+            List<Health> healths = new();
+
+            foreach (GameObject building in buildings)
+            {
+                if (building.TryGetComponent(out Health health))
+                {
+                    healths.Add(health);
+                }
+            }
+            
+            return healths;
+        }
     }
 }
