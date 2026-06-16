@@ -12,6 +12,7 @@ namespace Characters
         private static readonly int Vertical = Animator.StringToHash("Vertical");
         private static readonly int Moving = Animator.StringToHash("Moving");
         private static readonly int Die = Animator.StringToHash("Die");
+        private static readonly int Resurrect = Animator.StringToHash("Resurrect");
 
         [HideInInspector] [SerializeField] private Animator animator;
         [SerializeField] private SpriteRenderer spriteRenderer;
@@ -31,12 +32,14 @@ namespace Characters
         {
             charaHealth.onHealthReachZero.AddListener(TriggerDeath);
             charaHealth.onDamageTaken.AddListener(TriggerInvincibleFrame);
+            charaHealth.onResurrect.AddListener(TriggerResurrection);
         }
 
         private void OnDisable()
         {
             charaHealth.onHealthReachZero.RemoveListener(TriggerDeath);
             charaHealth.onDamageTaken.RemoveListener(TriggerInvincibleFrame);
+            charaHealth.onResurrect.RemoveListener(TriggerResurrection);
         }
 
         private void Update()
@@ -56,6 +59,11 @@ namespace Characters
             spriteRenderer.flipX = facingDirection.x < -0.5f && Mathf.Abs(facingDirection.x) > Mathf.Abs(facingDirection.y); 
         }
 
+        private void TriggerResurrection()
+        {
+            animator.SetTrigger(Resurrect);
+        }
+        
         private void TriggerDeath()
         {
             animator.SetTrigger(Die);

@@ -11,7 +11,7 @@ namespace Characters
         [SerializeField][HideInInspector] private EnemyMovementController movementController;
         [SerializeField][Min(0)] private float playerTargetingDistance = 5f;
 
-        private static GameObject _player;
+        private static Health _player;
         private static BuildingManager _buildingManager;
 
 
@@ -34,7 +34,7 @@ namespace Characters
 
         private void Update()
         {
-            if (playerTargetingDistance > 0 && TryTargetOnPlayer()) return;
+            if (!_player.IsDead && playerTargetingDistance > 0 && TryTargetOnPlayer()) return;
             if (TryTargetOnBuildings()) return;
             movementController.Target = null;
         }

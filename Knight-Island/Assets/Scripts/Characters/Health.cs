@@ -13,6 +13,7 @@ namespace Characters
 
         [Header("Events (Découplage)")]
         public UnityEvent onHealthReachZero;
+        public UnityEvent onResurrect;
         public event Action<float, float> OnHealthChanged;
         public UnityEvent onDamageTaken;
         public float CurrentHealth => _currentHealth; 
@@ -74,6 +75,14 @@ namespace Characters
             OnHealthChanged?.Invoke(_currentHealth, maxHealth);
         }
 
+        public void Resurrect()
+        {
+            if (!_isDead) return;
+            _isDead =  false; 
+            Heal();
+            onResurrect.Invoke();
+        }
+        
         private IEnumerator InvincibilityRoutine()
         {
             _isInvincible = true;

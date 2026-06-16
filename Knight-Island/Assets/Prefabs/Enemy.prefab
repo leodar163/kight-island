@@ -191,6 +191,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onResurrect:
+    m_PersistentCalls:
+      m_Calls: []
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []

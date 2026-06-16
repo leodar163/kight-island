@@ -1,3 +1,4 @@
+using System;
 using Characters;
 using UnityEngine;
 using Utils;
@@ -6,12 +7,18 @@ namespace Managers
 {
     public class PlayerManager :  Singleton<PlayerManager>
     {
-        [SerializeField] private GameObject player;
-        public static GameObject Player => Instance.player;
+        [SerializeField] private Health player;
+        private Health playerHealth;
+        public static Health Player => Instance.playerHealth;
+
+        private void Awake()
+        {
+            if (player != null) player.TryGetComponent(out playerHealth);
+        }
 
         public void RestorePlayer()
         {
-            if (player != null && player.TryGetComponent(out Health playerHealth))
+            if (playerHealth != null)
             {
                 playerHealth.Heal();
             }

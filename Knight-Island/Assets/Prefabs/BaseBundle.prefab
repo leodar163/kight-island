@@ -298,7 +298,7 @@ PrefabInstance:
     - target: {fileID: 4993227044961834579, guid: 5e068078817596b4eac9f43c6f4d1470, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 5786956431806557722}
+      objectReference: {fileID: 8788273303219485005}
     - target: {fileID: 5757837506771261550, guid: 5e068078817596b4eac9f43c6f4d1470, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -423,6 +423,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 2544293375101223410, guid: 6e5e8bdb22e07654685eb783fd6cc6d2, type: 3}
+      propertyPath: resurrectionChrono
+      value: 
+      objectReference: {fileID: 6536090319728210021}
     - target: {fileID: 2736664531748097459, guid: 6e5e8bdb22e07654685eb783fd6cc6d2, type: 3}
       propertyPath: m_SizeDelta.x
       value: 224
@@ -559,6 +563,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -16
       objectReference: {fileID: 0}
+    - target: {fileID: 7879496414354721800, guid: 6e5e8bdb22e07654685eb783fd6cc6d2, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 8788273303219485005}
     - target: {fileID: 8129786203462948282, guid: 6e5e8bdb22e07654685eb783fd6cc6d2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -798,13 +806,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
---- !u!1 &5786956431806557722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2904613292258820571, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+--- !u!114 &6536090319728210021 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2500904981944475556, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
   m_PrefabInstance: {fileID: 8646951213629894593}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575499050c64e934c922584000f19c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Utils.Chrono
 --- !u!4 &7890296539729606794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1549188472770221899, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
   m_PrefabInstance: {fileID: 8646951213629894593}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8788273303219485005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 141331574640137868, guid: 846f82b0d91950c499bec66516fb4b5b, type: 3}
+  m_PrefabInstance: {fileID: 8646951213629894593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209d54353d6876446b7dd3843bc4d1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Characters.PlayerHealth
