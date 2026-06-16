@@ -15,15 +15,15 @@ namespace WaveSystem
         [SerializeField] private Vector2[] spawnPoints;
         [SerializeField] private GameObject enemyTemplate;
         
-        private int waveNbr;
+        private int waveIndex;
         private WaveData currentWave;
         private float triggerWaveTime;
         private readonly List<SpawnData> triggeredSpawns = new();
         private readonly List<SpawnData> finishedSpawns = new();
         
-        public int WaveNbr =>  waveNbr;
+        public int WaveIndex =>  waveIndex;
 
-        public bool IsEndOfSequence => waveNbr >= sequence.Waves.Count;
+        public bool IsEndOfSequence => waveIndex >= sequence.Waves.Count;
         public bool IsDuringWave => currentWave != null;
 
         [SerializeField] public UnityEvent onWaveEnds;
@@ -55,12 +55,12 @@ namespace WaveSystem
         {
             if (IsEndOfSequence) return;
             
-           TriggerWave(sequence.Waves[waveNbr]);
+           TriggerWave(sequence.Waves[waveIndex]);
         }
 
         private void TriggerWave(WaveData wave)
         {
-            waveNbr++;
+            waveIndex++;
             currentWave = wave;
             triggerWaveTime = Time.time;
             triggeredSpawns.Clear();

@@ -54,7 +54,7 @@ namespace Characters
         }
 
         private void Die()
-        {
+        {       
             if (_isDead) return;
             _isDead = true;
 

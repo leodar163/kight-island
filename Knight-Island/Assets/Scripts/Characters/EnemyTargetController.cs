@@ -2,14 +2,15 @@ using System;
 using Characters.Movements;
 using Managers;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Characters
 {
     [RequireComponent(typeof(CharacterMovement))]
     public class EnemyTargetController : MonoBehaviour
     {
-        [SerializeField][HideInInspector] private EnemyMovementController movementController;
-        [SerializeField][Min(0)] private float playerTargetingDistance = 5f;
+        [SerializeField] [HideInInspector] private EnemyMovementController movementController;
+        [SerializeField] [Min(0)] private float playerTargetingDistance = 5f;
 
         private static Health _player;
         private static BuildingManager _buildingManager;
@@ -42,9 +43,12 @@ namespace Characters
         private bool TryTargetOnPlayer()
         {
             if (_player == null) return false;
-            if (!(Vector2.Distance(_player.transform.position, transform.position) < playerTargetingDistance))
+            if (!(Vector2.Distance(
+                    _player.transform.position,
+                    transform.position + (Vector3)movementController.TargetOffset
+                ) < playerTargetingDistance))
                 return false;
-            
+
             movementController.Target = _player.transform;
             return true;
         }
@@ -53,18 +57,18 @@ namespace Characters
         {
             Transform closest = null;
             float closestDistance = float.MaxValue;
-            
+
             foreach (GameObject building in _buildingManager.Buildings)
             {
                 float distance = Vector2.Distance(building.transform.position, transform.position);
                 if (!(distance < closestDistance)) continue;
-                
+
                 closest = building.transform;
                 closestDistance = distance;
             }
 
             if (closest == null) return false;
-            
+
             movementController.Target = closest;
             return true;
         }

@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575499050c64e934c922584000f19c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Utils.Chrono
-  chronoTime: 6
+  chronoTime: 9
   onChronoCanceled:
     m_PersistentCalls:
       m_Calls: []
@@ -319,7 +319,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2500904981944475556}
         m_TargetAssemblyTypeName: Utils.Chrono, Assembly-CSharp
-        m_MethodName: Start
+        m_MethodName: StartChrono
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

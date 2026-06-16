@@ -10,7 +10,7 @@ namespace WaveSystem.UI
         
         private void Update()
         {
-            text.SetText($"Vague {WaveManager.Instance.WaveNbr}");
+            text.SetText($"Vague {WaveManager.Instance.WaveIndex}");
         }
     }
 }
