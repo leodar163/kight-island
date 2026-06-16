@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,18 +30,18 @@ namespace Utils
         {
             if (onGoing &&  RemainingTime <= 0)
             {
-                Stop();
+                StopChrono();
                 onChronoEnded?.Invoke();
             }
         }
 
-        public void Cancel()
+        public void CancelChrono()
         {
-            Stop();
+            StopChrono();
             onChronoCanceled?.Invoke();
         }
 
-        public void Start()
+        public void StartChrono()
         {
             if (onGoing) return;
             
@@ -49,13 +50,13 @@ namespace Utils
             onChronoStarted?.Invoke();
         }
 
-        public void Start(float time)
+        public void StartChrono(float time)
         {
             chronoTime = time;
-            Start();
+            StartChrono();
         }
 
-        public void Stop()
+        public void StopChrono()
         {
             onGoing = false;
             startTime = 0;
