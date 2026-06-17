@@ -31,10 +31,10 @@ namespace WaveSystem
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.orange;
+            Gizmos.color = Color.indigo;
             foreach (Vector3 point in spawnPoints)
             {
-                Gizmos.DrawWireSphere(point, 0.5f);
+                Gizmos.DrawSphere(point, 0.5f);
             }
         }
         

@@ -1,3 +1,4 @@
+    using System;
     using UnityEngine;
 
 namespace Characters.Movements
@@ -19,6 +20,11 @@ namespace Characters.Movements
         {
             _playerInputs = new PlayerInputs();
             _playerInputs.Enable();
+        }
+
+        private void OnDisable()
+        {
+            _playerInputs.Disable();
         }
 
         private void FixedUpdate()
